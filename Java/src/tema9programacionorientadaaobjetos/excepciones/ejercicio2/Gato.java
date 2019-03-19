@@ -91,7 +91,7 @@ public class Gato {
 	public Gato apareaCon(Gato pareja) throws ApareamientoImposibleException {
 
 		if (this.sexo.equals(pareja.getSexo())) {
-			throw new ApareamientoImposibleException();
+			throw new ApareamientoImposibleException(raza);
 		}
 
 		String cria = (int) (Math.random() * 2) == 0 ? "hembra" : "macho";
