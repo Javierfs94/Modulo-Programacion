@@ -32,7 +32,7 @@ public class TestGestisimal {
 
 		int opcion;
 
-		almacenDePrueba();
+		 almacenDePrueba();
 
 		do {
 			mostrarMenu();
@@ -40,7 +40,7 @@ public class TestGestisimal {
 
 			switch ((opcion)) {
 			case 1:
-				System.out.println(almacen);
+				listar();
 				break;
 			case 2:
 				annadir();
@@ -62,6 +62,13 @@ public class TestGestisimal {
 				break;
 			}
 		} while (opcion != 7);
+	}
+
+	/**
+	 * Lista los artícullos del almacén
+	 */
+	public static void listar() {
+		System.out.println(almacen);
 	}
 
 	private static void almacenDePrueba() {

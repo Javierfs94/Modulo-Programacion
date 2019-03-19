@@ -10,7 +10,7 @@ import tema9programacionorientadaaobjetos.gestisimal.exceptions.StockNegativoExc
 
 /**
  * <p>
- * Gestiona el conjunto de artículos del almacén.
+ * Gestiona el conjunto de artículos del almacén
  * </p>
  * 
  * @author Rafael Miguel Cruz Álvarez
@@ -19,7 +19,7 @@ import tema9programacionorientadaaobjetos.gestisimal.exceptions.StockNegativoExc
  */
 public class Almacen {
 
-	private ArrayList<Articulo> almacen = new ArrayList<Articulo>();
+	private ArrayList<Articulo> arrayList = new ArrayList<Articulo>();
 
 	/**
 	 * Añadir un articulo
@@ -33,22 +33,22 @@ public class Almacen {
 	 */
 	public void annadir(String descripcion, double precioCompra, double precioVenta, int stock) throws Exception {
 		Articulo articulo = new Articulo(descripcion, precioCompra, precioVenta, stock);
-		if (!(almacen.contains(articulo)))
-			almacen.add(articulo);
+		if (!(arrayList.contains(articulo)))
+			arrayList.add(articulo);
 		else
 			throw new ArticuloYaExisteException("El árticulo ya existe.");
 
 	}
 
 	/**
-	 * Elimina el artículo del almacén
+	 * Elimina el artículo del almacén(Array List)
 	 * 
 	 * @param codigo
 	 *          Código del artículo a eliminar
 	 * @return true si se ha eliminado. false en otro caso.
 	 */
 	public boolean baja(int codigo) throws CodigoNoValidoExceptions {
-		return almacen.remove(new Articulo(codigo));
+		return arrayList.remove(new Articulo(codigo));
 	}
 
 	/**
@@ -63,13 +63,13 @@ public class Almacen {
 	 */
 	public void set(Articulo articulo, String descripcion, double precioCompra, double precioVenta, int stock)
 			throws StockNegativoExceptions {
-		int indice = almacen.indexOf(articulo);
+		int indice = arrayList.indexOf(articulo);
 		articulo.set(descripcion, precioCompra, precioVenta, stock);
-		almacen.set(indice, almacen.get(indice));
+		arrayList.set(indice, arrayList.get(indice));
 	}
 
 	/**
-	 * Método get para obtener el codigo del artículo.
+	 * Método get para obtener el codigo del artículo
 	 * 
 	 * @param codigo
 	 * @return
@@ -77,7 +77,7 @@ public class Almacen {
 	 */
 	public Articulo get(int codigo) throws ArticuloNoExisteException {
 		try {
-			return almacen.get(almacen.indexOf(new Articulo(codigo)));
+			return arrayList.get(arrayList.indexOf(new Articulo(codigo)));
 		} catch (IndexOutOfBoundsException e) {
 			throw new ArticuloNoExisteException("El código del artículo no existe en el almacén.");
 		}
@@ -92,7 +92,7 @@ public class Almacen {
 	 * @throws StockNegativoExceptions
 	 */
 	public void incrementar(int codigo, int cantidad) throws StockNegativoExceptions, CantidadNegativaExceptions {
-		Articulo articulo = almacen.get(almacen.indexOf(new Articulo(codigo)));
+		Articulo articulo = arrayList.get(arrayList.indexOf(new Articulo(codigo)));
 		try {
 			articulo.incrementaStock(cantidad);
 		} catch (CantidadNegativaExceptions e) {
@@ -109,7 +109,7 @@ public class Almacen {
 	 * @throws StockNegativoExceptions
 	 */
 	public void decrementar(int codigo, int cantidad) throws StockNegativoExceptions, CantidadNegativaExceptions {
-		Articulo articulo = almacen.get(almacen.indexOf(new Articulo(codigo)));
+		Articulo articulo = arrayList.get(arrayList.indexOf(new Articulo(codigo)));
 		try {
 			articulo.decrementaStock(cantidad);
 		} catch (CantidadNegativaExceptions e) {
@@ -124,6 +124,6 @@ public class Almacen {
 	 */
 	@Override
 	public String toString() {
-		return "Artículo " + almacen + "";
+		return "Artículo " + arrayList + "";
 	}
 }
