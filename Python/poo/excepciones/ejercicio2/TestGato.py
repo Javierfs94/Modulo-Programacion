@@ -10,7 +10,7 @@ tom = Gato("macho")
 lisa = Gato("hembra")
 
 try:
-    #garfield.apareaCon(tom) 
-    garfield.apareaCon(lisa)
+    garfield.apareaCon(tom) 
+    #garfield.apareaCon(lisa)
 except:
     print("Los gatos no pueden aparearse entre machos")
