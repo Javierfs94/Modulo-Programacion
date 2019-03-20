@@ -222,12 +222,6 @@ public class Articulo {
 		return true;
 	}
 
-	@Override
-	public String toString() {
-		return "\nCodigo: " + getCodigo() + "\nDescripcion: " + getDescripcion() + "\nPrecioCompra: " + getPrecioCompra()
-				+ "\nPrecioVenta: " + getPrecioVenta() + "\nStock: " + getStock() + "\n'''''''''''''''''''''''''''''''''''''''";
-	}
-
 	/**
 	 * Método set usado en Almacen para realizar la modificación.
 	 * 
@@ -249,4 +243,9 @@ public class Articulo {
 		setStock(stock);
 	}
 
+	@Override
+	public String toString() {
+		return "\nCodigo: " + getCodigo() + "\nDescripcion: " + getDescripcion() + "\nPrecioCompra: " + getPrecioCompra()
+				+ "\nPrecioVenta: " + getPrecioVenta() + "\nStock: " + getStock() + "\n'''''''''''''''''''''''''''''''''''''''";
+	}
 }

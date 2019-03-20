@@ -119,11 +119,8 @@ public class Almacen {
 		}
 	}
 
-	/**
-	 * Método toString
-	 */
 	@Override
 	public String toString() {
-		return "Artículo " + arrayList + "";
+		return "Artículos " + arrayList;
 	}
 }

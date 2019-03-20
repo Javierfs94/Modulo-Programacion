@@ -32,7 +32,7 @@ public class TestGestisimal {
 
 		int opcion;
 
-		 almacenDePrueba();
+		almacenDePrueba();
 
 		do {
 			mostrarMenu();
@@ -161,7 +161,7 @@ public class TestGestisimal {
 
 			almacen.set(articulo, descripcion, precioCompra, precioVenta, stock);
 
-		} catch (ArticuloNoExisteException e) {
+		} catch (ArticuloNoExisteException | StockNegativoExceptions e) {
 			System.err.println("No se ha podido modificar el artículo." + e.getMessage());
 		}
 
