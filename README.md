@@ -8,10 +8,12 @@ Temario visto en el módulo:
 - Métodos
 - POO (Programación Orientada a Objetos)
 - Uso de la API
-- Diseño de clases y uso de clases de la API
+- Diseño de clases
 - Paquetes
 - Listas y diccionarios
 - Filosofía de encapsulación
+- Ficheros
+- Excepciones
 
 
 
