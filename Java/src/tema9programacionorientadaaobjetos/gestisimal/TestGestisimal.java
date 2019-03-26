@@ -5,9 +5,10 @@ import java.util.Scanner;
 import tema9programacionorientadaaobjetos.gestisimal.almacen.Almacen;
 import tema9programacionorientadaaobjetos.gestisimal.almacen.Articulo;
 import tema9programacionorientadaaobjetos.gestisimal.exceptions.ArticuloNoExisteException;
-import tema9programacionorientadaaobjetos.gestisimal.exceptions.CantidadNegativaExceptions;
-import tema9programacionorientadaaobjetos.gestisimal.exceptions.CodigoNoValidoExceptions;
-import tema9programacionorientadaaobjetos.gestisimal.exceptions.StockNegativoExceptions;
+import tema9programacionorientadaaobjetos.gestisimal.exceptions.CantidadNegativaException;
+import tema9programacionorientadaaobjetos.gestisimal.exceptions.CodigoNoValidoException;
+import tema9programacionorientadaaobjetos.gestisimal.exceptions.StockNegativoException;
+import utiles.Menu;
 
 /**
  * <p>
@@ -27,41 +28,41 @@ public class TestGestisimal {
 
 	static Almacen almacen = new Almacen();
 	static Scanner entrada = new Scanner(System.in);
+	static Menu menu = new Menu("GESTISIMAL", new String[] { "Listado", "Alta", "Baja", "Modificacióno",
+			"Entrada de mercancía", "Salida de mercancía", "Salir" });
 
 	public static void main(String[] args) throws Exception {
-
-		int opcion;
 
 		almacenDePrueba();
 
 		do {
-			mostrarMenu();
-			opcion = pedirOpcion();
 
-			switch ((opcion)) {
-			case 1:
+			switch ((menu.gestionar())) {
+			case 1: // Listar articulos
 				listar();
 				break;
-			case 2:
+			case 2: // Añadir articulo
 				annadir();
 				break;
-			case 3:
+			case 3: // Eliminar articulo
 				baja();
 				break;
-			case 4:
+			case 4: // Modificar articulo
 				modificar();
 				break;
-			case 5:
+			case 5: // Aumentar stock
 				entradaAlmacen();
 				break;
-			case 6:
+			case 6: // Disminuir stock
 				salidaAlmacen();
 				break;
-			case 7:
-				salir();
+			default: // salir
+				System.out.println("**********************************");
+				System.out.println("Saliendo de la gestión del almacén");
+				System.out.println("**********************************");
 				break;
 			}
-		} while (opcion != 7);
+		} while (true);
 	}
 
 	/**
@@ -81,15 +82,6 @@ public class TestGestisimal {
 		} catch (Exception e) {
 			System.out.println("ESTO NO DEBE APARECERRRRRRRRRRRRRRRRR");
 		}
-	}
-
-	/**
-	 * Sale del programa
-	 */
-	private static void salir() {
-		System.out.println("**********************************");
-		System.out.println("Saliendo de la gestión del almacén");
-		System.out.println("**********************************");
 	}
 
 	/**
@@ -121,9 +113,9 @@ public class TestGestisimal {
 	/**
 	 * Da de baja un artículo del almacén
 	 * 
-	 * @throws CodigoNoValidoExceptions
+	 * @throws CodigoNoValidoException
 	 */
-	private static void baja() throws CodigoNoValidoExceptions {
+	private static void baja() throws CodigoNoValidoException {
 		System.out.println("Introduce el códido del artículo a eliminar.");
 		int codigo = entrada.nextInt();
 		entrada.nextLine();
@@ -139,9 +131,9 @@ public class TestGestisimal {
 	/**
 	 * Modifica el stock del almacen
 	 * 
-	 * @throws StockNegativoExceptions
+	 * @throws StockNegativoException
 	 */
-	private static void modificar() throws StockNegativoExceptions {
+	private static void modificar() throws StockNegativoException {
 
 		try {
 			System.out.println("--MODIFICAR ARTÍCULO--");
@@ -161,7 +153,7 @@ public class TestGestisimal {
 
 			almacen.set(articulo, descripcion, precioCompra, precioVenta, stock);
 
-		} catch (ArticuloNoExisteException | StockNegativoExceptions e) {
+		} catch (ArticuloNoExisteException | StockNegativoException e) {
 			System.err.println("No se ha podido modificar el artículo." + e.getMessage());
 		}
 
@@ -170,10 +162,10 @@ public class TestGestisimal {
 	/**
 	 * Aumentar el stock de un artículo
 	 * 
-	 * @throws StockNegativoExceptions
-	 * @throws CantidadNegativaExceptions
+	 * @throws StockNegativoException
+	 * @throws CantidadNegativaException
 	 */
-	private static void entradaAlmacen() throws StockNegativoExceptions, CantidadNegativaExceptions {
+	private static void entradaAlmacen() throws StockNegativoException, CantidadNegativaException {
 		try {
 			System.out.println("--INCREMENTAR STOCK--");
 			System.out.println("Introduce el codigo del articulo para incrementar su stock.");
@@ -194,10 +186,10 @@ public class TestGestisimal {
 	/**
 	 * Disminuye el stock de un artículo (este no puede ser negativo)
 	 * 
-	 * @throws StockNegativoExceptions
-	 * @throws CantidadNegativaExceptions
+	 * @throws StockNegativoException
+	 * @throws CantidadNegativaException
 	 */
-	private static void salidaAlmacen() throws StockNegativoExceptions, CantidadNegativaExceptions {
+	private static void salidaAlmacen() throws StockNegativoException, CantidadNegativaException {
 		try {
 			System.out.println("--DECREMENTAR STOCK--");
 			System.out.println("Introduce el codigo del articulo para decrementar su stock.");

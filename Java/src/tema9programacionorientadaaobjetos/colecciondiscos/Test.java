@@ -4,39 +4,12 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
- * ColeccionDeDiscosPrincipal.java Gestión de una colección de discos.
+ * Test del programa. Comunicación con el usuario
  * 
- * *
- * <p>
- * Modifica el programa “Colección de discos” como se indica a continuación:
- * </p>
- * <p>
- * a) Mejora la opción “Nuevo disco” de tal forma que cuando se llenen todas las
- * posiciones del array, el programa muestre un mensaje de error. No se
- * permitirá introducir los datos de ningún disco hasta que no se borre alguno
- * de la lista.
- * </p>
- * <p>
- * b) Mejora la opción “Borrar” de tal forma que se verifique que el código
- * introducido por el usuario existe.
- * </p>
- * <p>
- * c) Modifica el programa de tal forma que el código del disco sea único, es
- * decir que no se pueda repetir.
- * </p>
- * <p>
- * d) Crea un submenú dentro dentro de “Listado” de tal forma que exista un
- * listado completo, un listado por autor (todos los discos que ha publicado un
- * determinado autor), un listado por género (todos los discos de un género
- * determinado) y un listado de discos cuya duración esté en un rango
- * determinado por el usuario.
- * </p>
- * 
- * @author Fco Javier Frías Serrano
- * @author Rafa Cruz
+ * @author Francisco Javier Frías Serrano
  * @version 1.0
  */
-public class ColeccionDeDiscosPrincipal {
+public class Test {
 
 	static Scanner entrada = new Scanner(System.in);
 
@@ -320,5 +293,7 @@ public class ColeccionDeDiscosPrincipal {
 		System.out.println("3. Por género");
 		System.out.println("4. En un rango de duración");
 		System.out.println("5. Menú principal");
+
 	}
+
 }

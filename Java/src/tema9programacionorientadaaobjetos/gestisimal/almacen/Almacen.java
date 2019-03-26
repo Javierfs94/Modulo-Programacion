@@ -4,9 +4,9 @@ import java.util.ArrayList;
 
 import tema9programacionorientadaaobjetos.gestisimal.exceptions.ArticuloNoExisteException;
 import tema9programacionorientadaaobjetos.gestisimal.exceptions.ArticuloYaExisteException;
-import tema9programacionorientadaaobjetos.gestisimal.exceptions.CantidadNegativaExceptions;
-import tema9programacionorientadaaobjetos.gestisimal.exceptions.CodigoNoValidoExceptions;
-import tema9programacionorientadaaobjetos.gestisimal.exceptions.StockNegativoExceptions;
+import tema9programacionorientadaaobjetos.gestisimal.exceptions.CantidadNegativaException;
+import tema9programacionorientadaaobjetos.gestisimal.exceptions.CodigoNoValidoException;
+import tema9programacionorientadaaobjetos.gestisimal.exceptions.StockNegativoException;
 
 /**
  * <p>
@@ -47,7 +47,7 @@ public class Almacen {
 	 *          Código del artículo a eliminar
 	 * @return true si se ha eliminado. false en otro caso.
 	 */
-	public boolean baja(int codigo) throws CodigoNoValidoExceptions {
+	public boolean baja(int codigo) throws CodigoNoValidoException {
 		return arrayList.remove(new Articulo(codigo));
 	}
 
@@ -59,10 +59,10 @@ public class Almacen {
 	 * @param precioCompra
 	 * @param precioVenta
 	 * @param stock
-	 * @throws StockNegativoExceptions
+	 * @throws StockNegativoException
 	 */
 	public void set(Articulo articulo, String descripcion, double precioCompra, double precioVenta, int stock)
-			throws StockNegativoExceptions {
+			throws StockNegativoException {
 		int indice = arrayList.indexOf(articulo);
 		articulo.set(descripcion, precioCompra, precioVenta, stock);
 		arrayList.set(indice, arrayList.get(indice));
@@ -88,14 +88,14 @@ public class Almacen {
 	 * 
 	 * @param codigo
 	 * @param cantidad
-	 * @throws CantidadNegativaExceptions
-	 * @throws StockNegativoExceptions
+	 * @throws CantidadNegativaException
+	 * @throws StockNegativoException
 	 */
-	public void incrementar(int codigo, int cantidad) throws StockNegativoExceptions, CantidadNegativaExceptions {
+	public void incrementar(int codigo, int cantidad) throws StockNegativoException, CantidadNegativaException {
 		Articulo articulo = arrayList.get(arrayList.indexOf(new Articulo(codigo)));
 		try {
 			articulo.incrementaStock(cantidad);
-		} catch (CantidadNegativaExceptions e) {
+		} catch (CantidadNegativaException e) {
 			System.err.println("No se ha podido incrementar el stock del artículo." + e.getMessage());
 		}
 	}
@@ -105,16 +105,16 @@ public class Almacen {
 	 * 
 	 * @param codigo
 	 * @param cantidad
-	 * @throws CantidadNegativaExceptions
-	 * @throws StockNegativoExceptions
+	 * @throws CantidadNegativaException
+	 * @throws StockNegativoException
 	 */
-	public void decrementar(int codigo, int cantidad) throws StockNegativoExceptions, CantidadNegativaExceptions {
+	public void decrementar(int codigo, int cantidad) throws StockNegativoException, CantidadNegativaException {
 		Articulo articulo = arrayList.get(arrayList.indexOf(new Articulo(codigo)));
 		try {
 			articulo.decrementaStock(cantidad);
-		} catch (CantidadNegativaExceptions e) {
+		} catch (CantidadNegativaException e) {
 			System.err.println("No se ha podido decrementar el stock del artículo." + e.getMessage());
-		} catch (StockNegativoExceptions e) {
+		} catch (StockNegativoException e) {
 			System.err.println("No se ha podido decrementar el stock del artículo." + e.getMessage());
 		}
 	}

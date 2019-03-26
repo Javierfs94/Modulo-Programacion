@@ -1,7 +1,7 @@
 package tema9programacionorientadaaobjetos.gestisimal.almacen;
 
-import tema9programacionorientadaaobjetos.gestisimal.exceptions.CantidadNegativaExceptions;
-import tema9programacionorientadaaobjetos.gestisimal.exceptions.StockNegativoExceptions;
+import tema9programacionorientadaaobjetos.gestisimal.exceptions.CantidadNegativaException;
+import tema9programacionorientadaaobjetos.gestisimal.exceptions.StockNegativoException;
 
 /**
  * <p>
@@ -46,9 +46,9 @@ public class Articulo {
 	 * @param precioCompra
 	 * @param precioVenta
 	 * @param stock
-	 * @throws StockNegativoExceptions
+	 * @throws StockNegativoException
 	 */
-	Articulo(String descripcion, double precioCompra, double precioVenta, int stock) throws StockNegativoExceptions {
+	Articulo(String descripcion, double precioCompra, double precioVenta, int stock) throws StockNegativoException {
 		setDescripcion(descripcion);
 		setPrecioCompra(precioCompra);
 		setPrecioVenta(precioVenta);
@@ -161,13 +161,13 @@ public class Articulo {
 	 * 
 	 * @param stock
 	 *          el stock a establecer
-	 * @throws StockNegativoExceptions
+	 * @throws StockNegativoException
 	 */
-	void setStock(int stock) throws StockNegativoExceptions {
+	void setStock(int stock) throws StockNegativoException {
 		if (stock >= 0) {
 			this.stock = stock;
 		} else
-			throw new StockNegativoExceptions("El stock no puede ser negativo.");
+			throw new StockNegativoException("El stock no puede ser negativo.");
 	}
 
 	/**
@@ -175,14 +175,14 @@ public class Articulo {
 	 * 
 	 * @param cantidad
 	 *          a incrementar de stock
-	 * @throws StockNegativoExceptions
-	 * @throws CantidadNegativaExceptions
+	 * @throws StockNegativoException
+	 * @throws CantidadNegativaException
 	 */
-	public void incrementaStock(int cantidad) throws StockNegativoExceptions, CantidadNegativaExceptions {
+	public void incrementaStock(int cantidad) throws StockNegativoException, CantidadNegativaException {
 		if (cantidad > 0)
 			setStock(getStock() + cantidad);
 		else
-			throw new CantidadNegativaExceptions("No se puede añadir una cantidad de stock negativo.");
+			throw new CantidadNegativaException("No se puede añadir una cantidad de stock negativo.");
 	}
 
 	/**
@@ -190,14 +190,14 @@ public class Articulo {
 	 * 
 	 * @param cantidad
 	 *          a decrementar de stock
-	 * @throws CantidadNegativaExceptions
-	 * @throws StockNegativoExceptions
+	 * @throws CantidadNegativaException
+	 * @throws StockNegativoException
 	 */
-	public void decrementaStock(int cantidad) throws CantidadNegativaExceptions, StockNegativoExceptions {
+	public void decrementaStock(int cantidad) throws CantidadNegativaException, StockNegativoException {
 		if (cantidad > 0)
 			setStock(getStock() - cantidad);
 		else
-			throw new CantidadNegativaExceptions("No se puede añadir una cantidad de stock negativo.");
+			throw new CantidadNegativaException("No se puede añadir una cantidad de stock negativo.");
 	}
 
 	@Override
@@ -233,10 +233,10 @@ public class Articulo {
 	 *          del articulo
 	 * @param stock
 	 *          del articulo
-	 * @throws StockNegativoExceptions
+	 * @throws StockNegativoException
 	 */
 	public void set(String descripcion, double precioCompra, double precioVenta, int stock)
-			throws StockNegativoExceptions {
+			throws StockNegativoException {
 		setDescripcion(descripcion);
 		setPrecioCompra(precioCompra);
 		setPrecioVenta(precioVenta);

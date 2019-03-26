@@ -54,7 +54,8 @@ public class Gato {
 	 * Hace que el gato coma. A los gatos les gusta el pescado, si le damos otra
 	 * comida la rechazará.
 	 ** 
-	 * @param comida la comida que se le ofrece al gato
+	 * @param comida
+	 *          la comida que se le ofrece al gato
 	 */
 	public void come(String comida) {
 		if (comida.equals("pescado")) {
@@ -67,7 +68,8 @@ public class Gato {
 	/**
 	 * Pone a pelear dos gatos. Solo se van a pelear dos machos entre sí.
 	 *
-	 * @param contrincante es el gato contra el que pelear
+	 * @param contrincante
+	 *          es el gato contra el que pelear
 	 */
 	public void peleaCon(Gato contrincante) {
 		if (this.sexo.equals("hembra")) {
