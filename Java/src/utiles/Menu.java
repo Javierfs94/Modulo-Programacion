@@ -1,5 +1,7 @@
 package utiles;
 
+import java.io.IOException;
+
 /**
  * <p>
  * Clase utilizada para la gestión de un menu. Se dedica a:
@@ -19,10 +21,8 @@ public class Menu {
 
 	/**
 	 * 
-	 * @param titulo
-	 *          título del menu
-	 * @param opciones
-	 *          opciones del menu
+	 * @param titulo   título del menu
+	 * @param opciones opciones del menu
 	 */
 	public Menu(String titulo, String[] opciones) {
 		this.titulo = titulo;
@@ -35,8 +35,10 @@ public class Menu {
 	 * seleccionada por el usuario
 	 * 
 	 * @return opcion valida del menu
+	 * @throws IOException
+	 * @throws NumberFormatException
 	 */
-	public int gestionar() {
+	public int gestionar() throws NumberFormatException, IOException {
 		mostrar();
 		return recogerOpcion();
 	}
@@ -46,17 +48,21 @@ public class Menu {
 	 */
 	private void mostrar() {
 		int i = 1;
-		System.out.println("**" + titulo);
-		for (String elemento : opciones)
+		System.out.println("***" + titulo+"***");
+		for (String elemento : opciones) {
 			System.out.println("(" + (i++) + ") " + elemento);
+		}
+		System.out.print("Introduzca una opción: ");
 	}
 
 	/**
 	 * Recoge la opcion valida del menu
 	 * 
 	 * @return opcion valida
+	 * @throws IOException
+	 * @throws NumberFormatException
 	 */
-	private int recogerOpcion() {
+	private int recogerOpcion() throws NumberFormatException, IOException {
 		int opcion;
 		do {
 			opcion = Teclado.leerEntero();

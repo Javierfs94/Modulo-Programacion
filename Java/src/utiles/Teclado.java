@@ -1,7 +1,7 @@
 package utiles;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
+import java.io.IOException;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
@@ -18,12 +18,13 @@ public class Teclado {
 	 * Lee un carácter del teclado
 	 * 
 	 * @return carácter introducido por el usuario
+	 * @throws IOException
 	 */
-	public static char leerCaracter() {
+	public static char leerCaracter() throws IOException {
 		char caracter;
 		try {
 			caracter = leerCadena().charAt(0);
-		} catch (Exception e) {
+		} catch (InputMismatchException e) {
 			caracter = 0;
 		}
 		return caracter;
@@ -32,11 +33,11 @@ public class Teclado {
 	/**
 	 * Lee un carácter del teclado
 	 * 
-	 * @param mensaje
-	 *          mensaje mostrado al usuario
+	 * @param mensaje mensaje mostrado al usuario
 	 * @return carácter introducido por el usuario
+	 * @throws IOException
 	 */
-	public static char leerCaracter(String mensaje) {
+	public static char leerCaracter(String mensaje) throws IOException {
 		System.out.println(mensaje);
 		return leerCaracter();
 	}
@@ -44,11 +45,11 @@ public class Teclado {
 	/**
 	 * Lee una cadena del teclado
 	 * 
-	 * @param mensaje
-	 *          mensaje mostrado al usuario
+	 * @param mensaje mensaje mostrado al usuario
 	 * @return cadena introducida por el usuario
+	 * @throws IOException
 	 */
-	public static String leerCadena(String mensaje) {
+	public static String leerCadena(String mensaje) throws IOException {
 		System.out.println(mensaje);
 		return leerCadena();
 	}
@@ -57,14 +58,16 @@ public class Teclado {
 	 * Lee una cadena del teclado
 	 * 
 	 * @return cadena introducida por el usuario
+	 * @throws IOException
 	 */
 
-	public static String leerCadena() {
-		BufferedReader bReader = new BufferedReader(new InputStreamReader(System.in));
+	public static String leerCadena() throws IOException {
+
 		String cadena;
+
 		try {
-			cadena = bReader.readLine(); // Lee una linea de texto (hasta intro)
-		} catch (Exception e) {
+			cadena = entrada.nextLine(); // Lee una linea de texto (hasta intro)
+		} catch (InputMismatchException e) {
 			cadena = "";
 		}
 		return cadena;
@@ -74,14 +77,16 @@ public class Teclado {
 	 * Lee un entero del teclado
 	 * 
 	 * @return entero introducido por el usuario
+	 * @throws IOException
+	 * @throws NumberFormatException
 	 */
-	public static int leerEntero() {
+	public static int leerEntero() throws NumberFormatException, IOException {
 		int x;
 		try {
 			x = Integer.parseInt(leerCadena().trim()); // Quita los espacios del
 			// String y convierte a
 			// int
-		} catch (Exception e) {
+		} catch (InputMismatchException e) {
 			x = 0;
 		}
 		return x;
@@ -90,11 +95,12 @@ public class Teclado {
 	/**
 	 * Lee una entero del teclado
 	 * 
-	 * @param mensaje
-	 *          mensaje mostrado al usuario
+	 * @param mensaje mensaje mostrado al usuario
 	 * @return entero introducida por el usuario
+	 * @throws IOException
+	 * @throws NumberFormatException
 	 */
-	public static int leerEntero(String mensaje) {
+	public static int leerEntero(String mensaje) throws NumberFormatException, IOException {
 		System.out.println(mensaje);
 		return leerEntero();
 	}
@@ -103,15 +109,17 @@ public class Teclado {
 	 * Lee un decimal del teclado
 	 * 
 	 * @return decimal introducido por el usuario
+	 * @throws IOException
+	 * @throws NumberFormatException
 	 */
-	public static double leerDecimal() {
+	public static double leerDecimal() throws NumberFormatException, IOException {
 		double x;
 		try {
 			x = Double.parseDouble(leerCadena().trim()); // Quita los espacios
 			// del String y
 			// convierte a
 			// double
-		} catch (Exception e) {
+		} catch (InputMismatchException e) {
 			x = 0;
 		}
 		return x;
@@ -120,11 +128,12 @@ public class Teclado {
 	/**
 	 * Lee una decimal del teclado
 	 * 
-	 * @param mensaje
-	 *          mensaje mostrado al usuario
+	 * @param mensaje mensaje mostrado al usuario
 	 * @return decimal introducida por el usuario
+	 * @throws IOException
+	 * @throws NumberFormatException
 	 */
-	public static double leerDecimal(String mensaje) {
+	public static double leerDecimal(String mensaje) throws NumberFormatException, IOException {
 		System.out.println(mensaje);
 		return leerDecimal();
 	}
