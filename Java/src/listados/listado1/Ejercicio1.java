@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 /**
  * Escribir un programa que pregunte al usuario su nombre, y luego lo salude.
- * jsfvjnld
+ * 
  * @author Fco Javier Frias Serrano
  * @version 1.0
  */
