@@ -86,7 +86,7 @@ public class Teclado {
 			x = Integer.parseInt(leerCadena().trim()); // Quita los espacios del
 			// String y convierte a
 			// int
-		} catch (InputMismatchException e) {
+		} catch (NumberFormatException e) {
 			x = 0;
 		}
 		return x;
@@ -119,7 +119,7 @@ public class Teclado {
 			// del String y
 			// convierte a
 			// double
-		} catch (InputMismatchException e) {
+		} catch (NumberFormatException e) {
 			x = 0;
 		}
 		return x;
