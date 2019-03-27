@@ -17,14 +17,12 @@ public class Ejercicio1 {
 
   public static void main(String[] args) {
 
-    int rangoInicial = 1;
-    int rangoFinal = 500;
     String ruta = "C:\\Users\\d18frsej2\\eclipse-workspace\\PGNJava\\src\\tema9programacionorientadaaobjetos\\ficheros\\primos.txt";
 
     try {
       BufferedWriter bw = new BufferedWriter(new FileWriter(ruta));
 
-      calcularPrimos(rangoInicial, rangoFinal, bw);
+      calcularPrimos(bw);
       System.out.println("Archivo guardado con éxito");
 
       bw.close();
@@ -42,9 +40,9 @@ public class Ejercicio1 {
    * @param bw
    * @throws IOException
    */
-  public static void calcularPrimos(int rangoInicial, int rangoFinal, BufferedWriter bw) throws IOException {
+  public static void calcularPrimos(BufferedWriter bw) throws IOException {
     boolean esPrimo;
-    for (int i = rangoInicial; i <= rangoFinal; i++) {
+    for (int i = 1; i < 501; i++) {
       esPrimo = true;
       for (int j = 2; j < i; j++) {
         if (i % j == 0) {
@@ -64,9 +62,7 @@ public class Ejercicio1 {
    * @throws IOException
    */
   public static void comprobarPrimo(boolean esPrimo, BufferedWriter bw, int i) throws IOException {
-
     if (esPrimo) {
-      // System.out.println(i + "\n");
       bw.write(i + "\n");
     }
   }
