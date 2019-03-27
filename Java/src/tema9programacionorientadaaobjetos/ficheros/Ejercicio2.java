@@ -18,8 +18,10 @@ public class Ejercicio2 {
 
   public static void main(String[] args) {
 
+    String ruta = "C:\\Users\\d18frsej2\\eclipse-workspace\\PGNJava\\src\\tema9programacionorientadaaobjetos\\ficheros\\primos.txt";
+
     try {
-      BufferedReader br = new BufferedReader(new FileReader("primos.dat"));
+      BufferedReader br = new BufferedReader(new FileReader(ruta));
       String linea = "";
       while (linea != null) {
         System.out.println(linea);
