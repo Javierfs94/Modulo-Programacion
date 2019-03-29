@@ -23,7 +23,12 @@ public class Ejercicio2 {
     try {
       BufferedReader br = new BufferedReader(new FileReader(ruta));
 
-      leerLineas(br);
+      String linea = "";
+
+      while (linea != null) {
+        System.out.println(linea);
+        linea = br.readLine();
+      }
 
       br.close();
 
@@ -32,22 +37,6 @@ public class Ejercicio2 {
     } catch (IOException ioe) {
       System.err.println("No se puede leer el fichero primos.dat");
     }
+    
   }
-
-  /**
-   * Lee las líneas del archivo
-   * 
-   * @param br
-   * @throws IOException
-   */
-  public static void leerLineas(BufferedReader br) throws IOException {
-    String linea = "";
-
-    while (linea != null) {
-      System.out.println(linea);
-      linea = br.readLine();
-    }
-
-  }
-
 }

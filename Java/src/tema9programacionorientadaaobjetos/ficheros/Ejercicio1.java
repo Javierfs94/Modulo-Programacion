@@ -22,7 +22,18 @@ public class Ejercicio1 {
     try {
       BufferedWriter bw = new BufferedWriter(new FileWriter(ruta));
 
-      calcularPrimos(bw);
+      boolean esPrimo;
+      for (int i = 1; i < 501; i++) {
+        esPrimo = true;
+        for (int j = 2; j < i; j++) {
+          if (i % j == 0) {
+            esPrimo = false;
+          }
+        }
+        if (esPrimo) {
+          bw.write(i + "\n");
+        }
+      }
       System.out.println("Archivo guardado con éxito");
 
       bw.close();
@@ -30,41 +41,6 @@ public class Ejercicio1 {
     } catch (IOException e) {
       System.err.println("No se ha podido escribir el archivo");
     }
+    
   }
-
-  /**
-   * Calcular los números primos
-   * 
-   * @param rangoInicial
-   * @param rangoFinal
-   * @param bw
-   * @throws IOException
-   */
-  public static void calcularPrimos(BufferedWriter bw) throws IOException {
-    boolean esPrimo;
-    for (int i = 1; i < 501; i++) {
-      esPrimo = true;
-      for (int j = 2; j < i; j++) {
-        if (i % j == 0) {
-          esPrimo = false;
-        }
-      }
-      comprobarPrimo(esPrimo, bw, i);
-    }
-  }
-
-  /**
-   * Comprueba si un número es primo o no
-   * 
-   * @param esPrimo
-   * @param bw
-   * @param i
-   * @throws IOException
-   */
-  public static void comprobarPrimo(boolean esPrimo, BufferedWriter bw, int i) throws IOException {
-    if (esPrimo) {
-      bw.write(i + "\n");
-    }
-  }
-
 }
