@@ -16,131 +16,141 @@ package tema9programacionorientadaaobjetos.tiempo;
  */
 public class Tiempo {
 
-  private int horas;
-  private int minutos;
-  private int segundos;
+	private int horas;
+	private int minutos;
+	private int segundos;
 
-  /**
-   * Constructor
-   * 
-   * @param horas
-   * @param minutos
-   * @param segundos
-   */
-  public Tiempo(int horas, int minutos, int segundos) {
-    this.horas = horas;
-    this.minutos = minutos;
-    this.segundos = segundos;
-  }
+	/**
+	 * Constructor
+	 * 
+	 * @param horas
+	 * @param minutos
+	 * @param segundos
+	 */
+	public Tiempo(int horas, int minutos, int segundos) {
+		if (segundos >= 59) {
+			minutos += segundos / 60;
+			segundos = segundos % 60;
+		}
+		if (minutos >= 60) {
+			horas += minutos / 60;
+			minutos = minutos % 60;
+		}
 
-  /**
-   * @return the horas
-   */
-  public int getHoras() {
-    return horas;
-  }
+		setHoras(horas);
+		setMinutos(minutos);
+		setSegundos(segundos);
+	}
 
-  /**
-   * @param horas
-   *          the horas to set
-   */
-  public void setHoras(int horas) {
-    this.horas = horas;
-  }
+	/**
+	 * @return the horas
+	 */
+	public int getHoras() {
+		return horas;
+	}
 
-  /**
-   * @return the minutos
-   */
-  public int getMinutos() {
-    return minutos;
-  }
+	/**
+	 * @param horas the horas to set
+	 */
+	public void setHoras(int horas) {
+		this.horas = horas;
+	}
 
-  /**
-   * @param minutos
-   *          the minutos to set
-   */
-  public void setMinutos(int minutos) {
-    this.minutos = minutos;
-  }
+	/**
+	 * @return the minutos
+	 */
+	public int getMinutos() {
+		return minutos;
+	}
 
-  /**
-   * @return the segundos
-   */
-  public int getSegundos() {
-    return segundos;
-  }
+	/**
+	 * @param minutos the minutos to set
+	 */
+	public void setMinutos(int minutos) {
+		this.minutos = minutos;
+		while (this.minutos >= 60) {
+			this.minutos -= 60;
+			this.horas++;
+		}
+	}
 
-  /**
-   * @param segundos
-   *          the segundos to set
-   */
-  public void setSegundos(int segundos) {
-    this.segundos = segundos;
-  }
+	/**
+	 * @return the segundos
+	 */
+	public int getSegundos() {
+		return segundos;
+	}
 
-  /**
-   * Suma 2 rangos de tiempo
-   * 
-   * @param horas
-   * @param minutos
-   * @param segundos
-   */
-  public void sumar(int horas, int minutos, int segundos) { // MODIFICAR PARA QUE CADA VEZ SEA 6 LO RESTE
-    this.segundos += segundos;
-    if (this.segundos >= 60) {
-      this.segundos -= 60;
-      this.minutos++;
-    }
-    this.minutos += minutos;
-    if (this.minutos >= 60) {
-      this.minutos -= 60;
-      this.horas++;
-    }
-    this.horas += horas;
-  }
+	/**
+	 * @param segundos the segundos to set
+	 */
+	public void setSegundos(int segundos) {
+		this.segundos = segundos;
+	}
 
-  /**
-   * Suma 2 rangos de tiempo
-   * 
-   * @param t
-   */
-  public void sumar(Tiempo t) {
-    this.sumar(t.getHoras(), t.getMinutos(), t.getSegundos());
-  }
+	/**
+	 * Suma 2 rangos de tiempo
+	 * 
+	 * @param horas
+	 * @param minutos
+	 * @param segundos
+	 */
+	public void sumar(int horas, int minutos, int segundos) {
+		this.segundos += segundos;
+		while (this.segundos >= 60) {
+			this.segundos -= 60;
+			this.minutos++;
+		}
+		this.minutos += minutos;
+		while (this.minutos >= 60) {
+			this.minutos -= 60;
+			this.horas++;
+		}
+		this.horas += horas;
+	}
 
-  /**
-   * Resta 2 rangos de tiempo
-   * 
-   * @param horas
-   * @param minutos
-   * @param segundos
-   */
-  public void restar(int horas, int minutos, int segundos) { // MODIFICAR PARA QUE CADA VEZ SEA 6 LO RESTE
-    this.segundos -= segundos;
-    if (this.segundos < 0) {
-      this.segundos += 60;
-      this.minutos--;
-    }
-    this.minutos -= minutos;
-    if (this.minutos < 0) {
-      this.minutos += 60;
-      this.horas--;
-    }
-    this.horas -= horas;
-  }
+	/**
+	 * Suma 2 rangos de tiempo
+	 * 
+	 * @param t
+	 */
+	public void sumar(Tiempo t) {
+		this.sumar(t.getHoras(), t.getMinutos(), t.getSegundos());
+	}
 
-  /**
-   * Resta 2 rangos de tiempo
-   * 
-   * @param t
-   */
-  public void restar(Tiempo t) {
-    this.restar(t.getHoras(), t.getMinutos(), t.getSegundos());
-  }
+	/**
+	 * Resta 2 rangos de tiempo
+	 * 
+	 * @param horas
+	 * @param minutos
+	 * @param segundos
+	 */
+	public void restar(int horas, int minutos, int segundos) {
+		this.segundos -= segundos;
+		if (this.segundos < 0) {
+			this.segundos += 60;
+			this.minutos--;
+		}
+		this.minutos -= minutos;
+		if (this.minutos < 0) {
+			this.minutos += 60;
+			this.horas--;
+		}
+		this.horas -= horas;
+	}
 
-  @Override
-  public String toString() {
-    return horas + "h " + minutos + "m " + segundos + "s";
-  }
+	/**
+	 * Resta 2 rangos de tiempo
+	 * 
+	 * @param t
+	 */
+	public void restar(Tiempo t) {
+		this.restar(t.getHoras(), t.getMinutos(), t.getSegundos());
+	}
+
+	@Override
+	public String toString() {
+		return horas + "h " + minutos + "m " + segundos + "s";
+	}
 
 }
