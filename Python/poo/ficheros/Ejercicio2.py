@@ -7,6 +7,6 @@
 @author: Francisco Javier Frías Serrano
 '''
 
-fichero = open("primos.dat","r") #Abrimos fichero
-print(fichero.read()) #Leemos su contenido
-fichero.close() #Cierre del fichero
+fichero = open("primos.dat", "r")
+print(fichero.read())
+fichero.close()
