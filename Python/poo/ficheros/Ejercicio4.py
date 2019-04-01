@@ -10,21 +10,22 @@
 
 @author: Francisco Javier Frías Serrano
 '''
-#Indicamos nombre fichero
-nombreFichero = input("Introduzca nombre del fichero a ordenar, que tenga una palabra por linea.") 
-ficheroLeido = open(nombreFichero+".txt","r") #Este sera el fichero que leamos
-ficheroOrdenado = open (nombreFichero+"_sort.txt","w") #Este el que escribiremos ordenado
 
-listaPalabras = [] #lista donde almacenaremos todas las palabras
+nombreFichero = input("Introduzca el nombre del fichero: ")
 
-for linea in ficheroLeido: #for que recorre las lineas del fichero y añade las palabras a la lista
-    listaPalabras.append(linea)
+lectura = open(nombreFichero + ".txt", "r")
+escritura = open(nombreFichero + "_sort.txt", "w")
+
+lista = []
+
+for x in lectura:
+    lista.append(x)
     
-listaPalabras.sort() #Ordenar la lista de palabras
+lista.sort()
 
-for x in listaPalabras: #Escribe las palabras ya ordenadas en el otro fichero
-    ficheroOrdenado.writelines(str(x))
-#Cierre de ficheros
-ficheroLeido.close()
-ficheroOrdenado.close()    
-print("Programa finalizado.")   
+for x in lista:
+    escritura.writelines(str(x))
+    
+lectura.close()
+escritura.close()
+

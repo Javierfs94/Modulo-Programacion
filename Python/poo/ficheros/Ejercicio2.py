@@ -6,11 +6,7 @@
 
 @author: Francisco Javier Frías Serrano
 '''
-ruta = "C:\\Users\\d18frsej2\\eclipse-workspace\\PGNPython\\poo\\ficheros\\primos.txt";
 
-#Abrimos fichero
-fichero = open(ruta,"r")
-#Leemos su contenido
-print(fichero.read())
-#Cierre del fichero
-fichero.close()
+fichero = open("primos.dat","r") #Abrimos fichero
+print(fichero.read()) #Leemos su contenido
+fichero.close() #Cierre del fichero

@@ -7,19 +7,33 @@
 
 @author: Francisco Javier Frías Serrano
 '''
-nombreFichero = input("Introduca el nombre del fichero a examinar")
-palabra = input("Que palabra quieres buscar?")
-#Se abre el fichero
-f = open(nombreFichero+".txt","r")
-#Un contador que indicara el numero de coincidencias
-contador = 0
-#Se almacena el contenido del fichero en una cadena de texto
-texto = f.read()
-f.close() #Se cierra el fichero
-palabrasSeparadas = texto.split() #Almaceno las palabras separadas en una lista
 
-for x in palabrasSeparadas: #Recorro un for que si encuentra coincidencia de la palabra elegida con una de la lista, aumenta el contador
-    if x == palabra:
-        contador += 1
-        
-print("La palabra "+str(palabra)+" ha sido encontrada "+str(contador)+" veces.")
+#contador que almacena el número de veces que se repite la palabra
+contador = 0
+
+nombreFichero = input("Introduzca el nombre del fichero que desea contar las palabras: ")
+palabraAContar = input("¿Que palabra desea contar?")
+
+#abro el fichero en modo lectura
+lectura = open(nombreFichero+".txt","r")
+
+#leo el fichero y lo almaceno en la variable palabras
+palabras = lectura.read()
+
+#convierto la variable palabras en una lista y le quito los espacios, haciendo que cada palabra
+#sea un elemento de la lista
+lista = palabras.split()
+
+#cierro el flujo de datos
+lectura.close()
+
+for x in lista:
+    """
+    For que recorre la lista y comprueba si la palabra a contar está en la lista.
+    Si está en la lista suma 1 al contador.
+    """
+    if(x == palabraAContar):
+        contador = contador +1
+
+
+print("La palabra "+str(palabraAContar)+" se encuentra "+str(contador)+" veces en el fichero")
