@@ -17,8 +17,7 @@ lectura = open(nombreFichero + ".txt", "r")
 
 palabras = lectura.read()
 
-# convierto la variable palabras en una lista y le quito los espacios, haciendo que cada palabra
-# sea un elemento de la lista
+# convierte la variable palabras en una lista y le quito los espacios, haciendo que cada palabra sea un elemento de la lista
 lista = palabras.split()
 
 lectura.close()
