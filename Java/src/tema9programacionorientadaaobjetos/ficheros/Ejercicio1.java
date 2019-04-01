@@ -17,10 +17,10 @@ public class Ejercicio1 {
 
   public static void main(String[] args) {
 
-    String ruta = "C:\\Users\\d18frsej2\\eclipse-workspace\\PGNJava\\src\\tema9programacionorientadaaobjetos\\ficheros\\primos.txt";
+    String ruta = "C:\\Users\\Javier\\eclipse-workspace\\PGNJava\\src\\tema9programacionorientadaaobjetos\\ficheros\\primos.txt";
 
     try {
-      BufferedWriter bw = new BufferedWriter(new FileWriter(ruta));
+      BufferedWriter leer = new BufferedWriter(new FileWriter(ruta));
 
       boolean esPrimo;
       for (int i = 1; i < 501; i++) {
@@ -31,12 +31,12 @@ public class Ejercicio1 {
           }
         }
         if (esPrimo) {
-          bw.write(i + "\n");
+          leer.write(i + "\n");
         }
       }
       System.out.println("Archivo guardado con éxito");
 
-      bw.close();
+      leer.close();
 
     } catch (IOException e) {
       System.err.println("No se ha podido escribir el archivo");

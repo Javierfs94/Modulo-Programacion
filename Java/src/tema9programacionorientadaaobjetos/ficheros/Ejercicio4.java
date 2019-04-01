@@ -2,9 +2,14 @@ package tema9programacionorientadaaobjetos.ficheros;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
+
+import utiles.Teclado;
 
 /**
  * <p>
@@ -21,31 +26,46 @@ import java.util.ArrayList;
  */
 public class Ejercicio4 {
 
-  public static void main(String[] args) {
+	public static void main(String[] args) {
 
-    try {
-      BufferedReader br = new BufferedReader(new FileReader(args[0] + "+.txt"));
-      BufferedWriter bw = new BufferedWriter(new FileWriter(args[0] + "_sort.txt"));
-      String linea = "";
-      ArrayList<String> lista = new ArrayList<String>();
-      // Lee la linea hasta el final de archivo y agnade su contenido al arraylist
-      while (linea != null) {
-        linea = br.readLine();
-        lista.add(linea);
-      }
-      lista.sort(null); // Ordena el arrayList alfabeticamentes
+		ArrayList<String> lista = new ArrayList<String>();
 
-      for (String x : lista) { // Escribe la lista ordenada
-        bw.write(x);
-      }
+		String ruta = "C:\\Users\\Javier\\eclipse-workspace\\PGNJava\\src\\tema9programacionorientadaaobjetos\\ficheros\\";
+		String fichero = "";
 
-      System.out.println("Las palabras se han ordenado. Programa terminado");
-      br.close(); // Cierre de archivos
-      bw.close();
+		try {
+			fichero = Teclado.leerCadena("Introduzca el nombre del fichero: ");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 
-    } catch (Exception e) {
-      System.err.println("Error, no se ha podido llevar a cabo la accion.");
-    }
+		try {
+			BufferedReader leer = new BufferedReader(new FileReader(ruta + fichero + ".txt"));
+			BufferedWriter escribir = new BufferedWriter(new FileWriter(ruta + fichero + "_sort.txt"));
 
-  }
+			String linea = "";
+			
+			while (linea != null) {
+				lista.add(linea);
+				linea = leer.readLine();
+			}
+
+			leer.close();
+
+			Collections.sort(lista);
+
+			for (String cadena : lista) {
+				escribir.write(cadena + " ");
+			}
+
+			System.out.println("Archivo ordenado y guardado con éxito");
+			escribir.close();
+
+		} catch (FileNotFoundException e) {
+			System.err.println("El fichero indicado no existe");
+		} catch (IOException e) {
+			System.err.println("No se ha podido escribir en el archivo");
+		}
+
+	}
 }

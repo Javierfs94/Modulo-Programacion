@@ -18,19 +18,19 @@ public class Ejercicio2 {
 
   public static void main(String[] args) {
 
-    String ruta = "C:\\Users\\d18frsej2\\eclipse-workspace\\PGNJava\\src\\tema9programacionorientadaaobjetos\\ficheros\\primos.txt";
+    String ruta = "C:\\Users\\Javier\\eclipse-workspace\\PGNJava\\src\\tema9programacionorientadaaobjetos\\ficheros\\primos.txt";
 
     try {
-      BufferedReader br = new BufferedReader(new FileReader(ruta));
+      BufferedReader leer = new BufferedReader(new FileReader(ruta));
 
       String linea = "";
 
       while (linea != null) {
         System.out.println(linea);
-        linea = br.readLine();
+        linea = leer.readLine();
       }
 
-      br.close();
+      leer.close();
 
     } catch (FileNotFoundException fnfe) {
       System.err.println("No se encuentra el fichero primos.dat");

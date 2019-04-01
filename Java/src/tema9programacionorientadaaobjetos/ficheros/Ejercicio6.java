@@ -1,7 +1,11 @@
 package tema9programacionorientadaaobjetos.ficheros;
 
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.IOException;
+
+import utiles.Teclado;
 
 /**
  * <p>
@@ -15,30 +19,43 @@ import java.io.FileReader;
  */
 public class Ejercicio6 {
 
-  public static void main(String[] args) {
-    
-    try {
-      BufferedReader br = new BufferedReader(new FileReader(args[0] + ".txt"));
-      String linea = "";
-      String palabraDeseada = "" + args[1]; // Palabra la cual queremos buscar en el fichero
-      int coincidencias = 0; // Numero de veces que se encuentra la palabra
-      while (linea != null) {
-        linea = br.readLine();
-        String[] palabras = linea.split(" "); // Separa las palabras separadas por espacios y las almacena en un array
-                                              // de string
-        for (String x : palabras) { // Recorre el array y si coincide con la palabra deseada, aumenta el contador
-          if (x.equals(palabraDeseada)) {
-            coincidencias++;
-          }
-        }
-      }
+	public static void main(String[] args) {
 
-      System.out.println("La palabra " + palabraDeseada + " se ha encontrado " + coincidencias + " veces.");
-      System.out.println("Programa terminado");
-      br.close(); // Cierre de archivo
-    } catch (Exception e) {
-      System.err.println("Error, no se ha podido encontrar esas coincidencias.");
-    }
+		String ruta = "C:\\Users\\Javier\\eclipse-workspace\\PGNJava\\src\\tema9programacionorientadaaobjetos\\ficheros\\";
+		int contador = 0;
+		String fichero = "";
+		String palabra = "";
+		
+		try {
+			fichero = Teclado.leerCadena("Introduzca el nombre del fichero: ");
+			palabra = Teclado.leerCadena("¿Qué palabra deseas contar?");
+		} catch (IOException e) {
+			System.err.println("Error al introducir una cadena de texto");
+		}
 
-  }
+		try {
+			BufferedReader leer = new BufferedReader(new FileReader(ruta + fichero + ".txt"));
+
+			String linea = "";
+			String contenidoLinea = "";
+
+			while (linea != null) {
+				contenidoLinea = linea;
+				linea = leer.readLine();
+				if (contenidoLinea.equals(palabra)) {
+					contador++;
+				}
+			}
+
+			leer.close();
+
+		} catch (FileNotFoundException e) {
+			System.err.println("El fichero no se ha podido encontrar");
+		} catch (IOException e) {
+			System.err.println("Error en la lectura del fichero");
+		}
+
+		System.out.println("La palabra " + palabra + " se ha encontrado " + contador + " veces.");
+
+	}
 }
