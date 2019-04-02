@@ -19,43 +19,39 @@ import utiles.Teclado;
  */
 public class Ejercicio6 {
 
-	public static void main(String[] args) {
+  public static void main(String[] args) {
 
-		String ruta = "C:\\Users\\d18frsej2\\eclipse-workspace\\PGNJava\\src\\tema9programacionorientadaaobjetos\\ficheros\\";
-		int contador = 0;
-		String fichero = "";
-		String palabra = "";
-		
-		try {
-			fichero = Teclado.leerCadena("Introduzca el nombre del fichero: ");
-			palabra = Teclado.leerCadena("¿Qué palabra deseas contar?");
-		} catch (IOException e) {
-			System.err.println("Error al introducir una cadena de texto");
-		}
+    String ruta = "C:\\Users\\d18frsej2\\eclipse-workspace\\PGNJava\\src\\tema9programacionorientadaaobjetos\\ficheros\\";
+    int contador = 0;
+    String fichero = "";
+    String palabra = "";
 
-		try {
-			BufferedReader leer = new BufferedReader(new FileReader(ruta + fichero + ".txt"));
+    fichero = Teclado.leerCadena("Introduzca el nombre del fichero: ");
+    palabra = Teclado.leerCadena("¿Qué palabra deseas contar?");
 
-			String linea = "";
-			String contenidoLinea = "";
+    try {
+      BufferedReader leer = new BufferedReader(new FileReader(ruta + fichero + ".txt"));
 
-			while (linea != null) {
-				contenidoLinea = linea;
-				linea = leer.readLine();
-				if (contenidoLinea.equals(palabra)) {
-					contador++;
-				}
-			}
+      String linea = "";
+      String contenidoLinea = "";
 
-			leer.close();
+      while (linea != null) {
+        contenidoLinea = linea;
+        linea = leer.readLine();
+        if (contenidoLinea.equals(palabra)) {
+          contador++;
+        }
+      }
 
-		} catch (FileNotFoundException e) {
-			System.err.println("El fichero no se ha podido encontrar");
-		} catch (IOException e) {
-			System.err.println("Error en la lectura del fichero");
-		}
+      leer.close();
 
-		System.out.println("La palabra " + palabra + " se ha encontrado " + contador + " veces.");
+    } catch (FileNotFoundException e) {
+      System.err.println("El fichero no se ha podido encontrar");
+    } catch (IOException e) {
+      System.err.println("Error en la lectura del fichero");
+    }
 
-	}
+    System.out.println("La palabra " + palabra + " se ha encontrado " + contador + " veces.");
+
+  }
 }

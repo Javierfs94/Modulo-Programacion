@@ -1,6 +1,8 @@
 package tema9programacionorientadaaobjetos.gestisimal.almacen;
 
 import tema9programacionorientadaaobjetos.gestisimal.exceptions.CantidadNegativaException;
+import tema9programacionorientadaaobjetos.gestisimal.exceptions.PrecioCompraNegativoException;
+import tema9programacionorientadaaobjetos.gestisimal.exceptions.PrecioVentaNegativoException;
 import tema9programacionorientadaaobjetos.gestisimal.exceptions.StockNegativoException;
 
 /**
@@ -32,220 +34,251 @@ import tema9programacionorientadaaobjetos.gestisimal.exceptions.StockNegativoExc
  */
 public class Articulo {
 
-	private static int contador = 0; // Generará códigos para los artículos
-	private int codigo;// Identifica al artículo. Será único
-	private String descripcion;
-	private double precioCompra;
-	private double precioVenta;
-	private int stock;
+  /**
+   * Generará códigos para los artículos
+   */
+  private static int contador = 1;
+  private String descripcion;
+  private double precioCompra;
+  private double precioVenta;
+  private int stock;
+  /**
+   * Identifica al artículo. Será único
+   */
+  private int codigo;
 
-	/**
-	 * Constructor
-	 * 
-	 * @param descripcion
-	 * @param precioCompra
-	 * @param precioVenta
-	 * @param stock
-	 * @throws StockNegativoException
-	 */
-	Articulo(String descripcion, double precioCompra, double precioVenta, int stock) throws StockNegativoException {
-		setDescripcion(descripcion);
-		setPrecioCompra(precioCompra);
-		setPrecioVenta(precioVenta);
-		setStock(stock);
-		setCodigo();
-	}
+  /**
+   * Constructor de la clase artículo
+   * 
+   * @param descripcion
+   * @param precioCompra
+   * @param precioVenta
+   * @param stock
+   * @throws StockNegativoException
+   * @throws PrecioCompraNegativoException
+   * @throws PrecioVentaNegativoException
+   */
+  Articulo(String descripcion, double precioCompra, double precioVenta, int stock)
+      throws StockNegativoException, PrecioCompraNegativoException, PrecioVentaNegativoException {
+    setDescripcion(descripcion);
+    setPrecioCompra(precioCompra);
+    setPrecioVenta(precioVenta);
+    setStock(stock);
+    setCodigo();
+  }
 
-	/**
-	 * Constructor
-	 * 
-	 * @param codigoArticulo
-	 */
-	Articulo(int codigoArticulo) {
-		setCodigo(codigoArticulo);
-	}
+  /**
+   * Constructor de la clase artículo unicamente con el código del artículo
+   * 
+   * @param codigoArticulo
+   */
+  Articulo(int codigoArticulo) {
+    setCodigo(codigoArticulo);
+  }
 
-	/**
-	 * Establece el código único
-	 */
-	private void setCodigo() {
-		this.codigo = Articulo.contador++;
-	}
+  /**
+   * Setter del código que aumenta el contador en 1
+   */
+  private void setCodigo() {
+    this.codigo = Articulo.contador++;
+  }
 
-	/**
-	 * Establece el código pasado como parámetro
-	 * 
-	 * @param codigo
-	 */
-	private void setCodigo(int codigo) {
-		this.codigo = codigo;
-	}
+  /**
+   * Setter del código del constructor de articulo que usa unicamente el codigo.
+   * 
+   */
+  private void setCodigo(int codigo) {
+    this.codigo = codigo;
+  }
 
-	/**
-	 * Devuelve el código del articulo
-	 * 
-	 * @return código
-	 */
-	public int getCodigo() {
-		return codigo;
-	}
+  /**
+   * Getter del código
+   * 
+   * @return codigo del artículo
+   */
+  public int getCodigo() {
+    return codigo;
+  }
 
-	/**
-	 * Devuelve la descripcion del articulo
-	 * 
-	 * @return la descripcion
-	 */
-	public String getDescripcion() {
-		return descripcion;
-	}
+  /**
+   * Getter de la descripción
+   * 
+   * @return the descripcion
+   */
+  public String getDescripcion() {
+    return descripcion;
+  }
 
-	/**
-	 * Establece la descripción del articulo
-	 * 
-	 * @param descripcion
-	 *          la descripcion a establecer
-	 */
-	void setDescripcion(String descripcion) {
-		this.descripcion = descripcion;
-	}
+  /**
+   * Setter de la descripción
+   * 
+   * @param descripcion
+   *          the descripcion to set
+   */
+  void setDescripcion(String descripcion) {
+    this.descripcion = descripcion;
+  }
 
-	/**
-	 * Deevuelve el precio de compra del articulo
-	 * 
-	 * @return el precio de compra
-	 */
-	public double getPrecioCompra() {
-		return precioCompra;
-	}
+  /**
+   * Getter precio de compra
+   * 
+   * @return the precioCompra
+   */
+  public double getPrecioCompra() {
+    return precioCompra;
+  }
 
-	/**
-	 * Establece el precio de compra del articulo
-	 * 
-	 * @param precioCompra
-	 *          el precioCompra a estabelcer
-	 */
-	void setPrecioCompra(double precioCompra) {
-		this.precioCompra = precioCompra;
-	}
+  /**
+   * Setter de precio de compra en el que se controla que el precio de compra no
+   * sea negativo
+   * 
+   * @param precioCompra
+   *          the precioCompra to set
+   * @throws PrecioCompraNegativoException
+   */
+  void setPrecioCompra(double precioCompra) throws PrecioCompraNegativoException {
+    if (precioCompra >= 0) {
+      this.precioCompra = precioCompra;
+    } else
+        throw new PrecioCompraNegativoException("El precio de compra no puede ser negativo.");
+  }
 
-	/**
-	 * Devuelve el precio de venta del articulo
-	 * 
-	 * @return el precio de venta
-	 */
-	public double getPrecioVenta() {
-		return precioVenta;
-	}
+  /**
+   * Getter precio de venta
+   * 
+   * @return the precioVenta
+   */
+  public double getPrecioVenta() {
+    return precioVenta;
+  }
 
-	/**
-	 * Establece el precio de venta del articulo
-	 * 
-	 * @param precioVenta
-	 *          el precioVenta a establecer
-	 */
-	void setPrecioVenta(double precioVenta) {
-		this.precioVenta = precioVenta;
-	}
+  /**
+   * Setter precio de venta en el que se controla que el precio de venta no sea
+   * negativo
+   * 
+   * @param precioVenta
+   *          the precioVenta to set
+   * @throws PrecioVentaNegativoException
+   */
+  void setPrecioVenta(double precioVenta) throws PrecioVentaNegativoException {
+    if (precioVenta >= 0) {
+      this.precioVenta = precioVenta;
+    } else
+        throw new PrecioVentaNegativoException("El precio de venta no puede ser negativo.");
 
-	/**
-	 * Devuelve el stock del articulo
-	 * 
-	 * @return el stock
-	 */
-	public int getStock() {
-		return stock;
-	}
+  }
 
-	/**
-	 * Establece el stock del articulo
-	 * 
-	 * @param stock
-	 *          el stock a establecer
-	 * @throws StockNegativoException
-	 */
-	void setStock(int stock) throws StockNegativoException {
-		if (stock >= 0) {
-			this.stock = stock;
-		} else
-			throw new StockNegativoException("El stock no puede ser negativo.");
-	}
+  /**
+   * Getter del stock
+   * 
+   * @return the stock
+   */
+  public int getStock() {
+    return stock;
+  }
 
-	/**
-	 * Método para aumentar el stock
-	 * 
-	 * @param cantidad
-	 *          a incrementar de stock
-	 * @throws StockNegativoException
-	 * @throws CantidadNegativaException
-	 */
-	public void incrementaStock(int cantidad) throws StockNegativoException, CantidadNegativaException {
-		if (cantidad > 0)
-			setStock(getStock() + cantidad);
-		else
-			throw new CantidadNegativaException("No se puede añadir una cantidad de stock negativo.");
-	}
+  /**
+   * Setter de stock en el que se controla que el stock no sea negativo
+   * 
+   * @param stock
+   *          the stock to set
+   * @throws StockNegativoException
+   */
+  void setStock(int stock) throws StockNegativoException {
+    if (stock >= 0) {
+      this.stock = stock;
+    } else
+        throw new StockNegativoException("El stock no puede ser negativo.");
+  }
 
-	/**
-	 * Método para decrementar el stock
-	 * 
-	 * @param cantidad
-	 *          a decrementar de stock
-	 * @throws CantidadNegativaException
-	 * @throws StockNegativoException
-	 */
-	public void decrementaStock(int cantidad) throws CantidadNegativaException, StockNegativoException {
-		if (cantidad > 0)
-			setStock(getStock() - cantidad);
-		else
-			throw new CantidadNegativaException("No se puede añadir una cantidad de stock negativo.");
-	}
+  /**
+   * Método para aumentar el stock
+   * 
+   * @param cantidad
+   * @throws StockNegativoException
+   * @throws CantidadNegativaException
+   */
+  public void incrementaStock(int cantidad) throws StockNegativoException, CantidadNegativaException {
+    if (cantidad > 0)
+      setStock(getStock() + cantidad);
+    else
+      throw new CantidadNegativaException("No se puede añadir una cantidad de stock negativo.");
+  }
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + codigo;
-		return result;
-	}
+  /**
+   * Método para aumentar el stock
+   * 
+   * @param cantidad
+   * @throws CantidadNegativaException
+   * @throws StockNegativoException
+   */
+  public void decrementaStock(int cantidad) throws CantidadNegativaException, StockNegativoException {
+    if (cantidad > 0)
+      setStock(getStock() - cantidad);
+    else
+      throw new CantidadNegativaException("No se puede añadir una cantidad de stock negativo.");
+  }
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Articulo other = (Articulo) obj;
-		if (codigo != other.codigo)
-			return false;
-		return true;
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.lang.Object#hashCode()
+   */
+  @Override
+  public int hashCode() {
+    final int prime = 31;
+    int result = 1;
+    result = prime * result + codigo;
+    return result;
+  }
 
-	/**
-	 * Método set usado en Almacen para realizar la modificación.
-	 * 
-	 * @param descripcion
-	 *          del articulo
-	 * @param precioCompra
-	 *          del articulo
-	 * @param precioVenta
-	 *          del articulo
-	 * @param stock
-	 *          del articulo
-	 * @throws StockNegativoException
-	 */
-	public void set(String descripcion, double precioCompra, double precioVenta, int stock)
-			throws StockNegativoException {
-		setDescripcion(descripcion);
-		setPrecioCompra(precioCompra);
-		setPrecioVenta(precioVenta);
-		setStock(stock);
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.lang.Object#equals(java.lang.Object)
+   */
+  @Override
+  public boolean equals(Object obj) {
+    if (this == obj)
+      return true;
+    if (obj == null)
+      return false;
+    if (getClass() != obj.getClass())
+      return false;
+    Articulo other = (Articulo) obj;
+    if (codigo != other.codigo)
+      return false;
+    return true;
+  }
 
-	@Override
-	public String toString() {
-		return "\nCodigo: " + getCodigo() + "\nDescripcion: " + getDescripcion() + "\nPrecioCompra: " + getPrecioCompra()
-				+ "\nPrecioVenta: " + getPrecioVenta() + "\nStock: " + getStock() + "\n'''''''''''''''''''''''''''''''''''''''";
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.lang.Object#toString()
+   */
+  @Override
+  public String toString() {
+    return "\nCodigo: " + getCodigo() + "\nDescripcion: " + getDescripcion() + "\nPrecioCompra: " + getPrecioCompra()
+        + "\nPrecioVenta: " + getPrecioVenta() + "\nStock: " + getStock() + "\n'''''''''''''''''''''''''''''''''''''''";
+  }
+
+  /**
+   * Método set usado en Almacen para realizar la modificación.
+   * 
+   * @param descripcion
+   * @param precioCompra
+   * @param precioVenta
+   * @param stock
+   * @throws StockNegativoException
+   * @throws PrecioCompraNegativoException
+   * @throws PrecioVentaNegativoException
+   */
+  public void set(String descripcion, double precioCompra, double precioVenta, int stock)
+      throws StockNegativoException, PrecioCompraNegativoException, PrecioVentaNegativoException {
+    setDescripcion(descripcion);
+    setPrecioCompra(precioCompra);
+    setPrecioVenta(precioVenta);
+    setStock(stock);
+  }
+
 }

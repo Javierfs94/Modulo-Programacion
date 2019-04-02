@@ -1,0 +1,31 @@
+Artículo [
+Codigo: 1
+Descripcion: 1
+PrecioCompra: 11.0
+PrecioVenta: 11.0
+Stock: 11
+''''''''''''''''''''''''''''''''''''''', 
+Codigo: 2
+Descripcion: 1
+PrecioCompra: 22.0
+PrecioVenta: 22.0
+Stock: 22
+''''''''''''''''''''''''''''''''''''''', 
+Codigo: 3
+Descripcion: 33
+PrecioCompra: 11.0
+PrecioVenta: 11.0
+Stock: 33
+''''''''''''''''''''''''''''''''''''''', 
+Codigo: 4
+Descripcion: 44
+PrecioCompra: 11.0
+PrecioVenta: 11.0
+Stock: 44
+''''''''''''''''''''''''''''''''''''''', 
+Codigo: 5
+Descripcion: 55
+PrecioCompra: 11.0
+PrecioVenta: 11.0
+Stock: 55
+''''''''''''''''''''''''''''''''''''''']

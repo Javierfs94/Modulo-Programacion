@@ -33,11 +33,7 @@ public class Ejercicio4 {
 		String ruta = "C:\\Users\\d18frsej2\\eclipse-workspace\\PGNJava\\src\\tema9programacionorientadaaobjetos\\ficheros\\";
 		String fichero = "";
 
-		try {
-			fichero = Teclado.leerCadena("Introduzca el nombre del fichero: ");
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		fichero = Teclado.leerCadena("Introduzca el nombre del fichero: ");
 
 		try {
 			BufferedReader leer = new BufferedReader(new FileReader(ruta + fichero + ".txt"));
