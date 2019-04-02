@@ -9,8 +9,6 @@
 
 # main
 
-# Creamos un archivo llamado primos.dat y lo abrimos en modo escritura
-escritura = open("primos.dat", "w")
 
 
 def esPrimo(num):
@@ -29,6 +27,7 @@ def esPrimo(num):
                 return False
         return True
 
+escritura = open("primos.dat", "w")
 
 for x in range(501):
     """
@@ -37,5 +36,4 @@ for x in range(501):
     if(esPrimo(x) == True):
         escritura.writelines(str(x) + " ")
 
-# Cierro el flujo de datos 
 escritura.close()

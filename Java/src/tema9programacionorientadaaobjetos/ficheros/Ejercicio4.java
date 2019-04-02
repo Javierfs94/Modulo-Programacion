@@ -30,7 +30,7 @@ public class Ejercicio4 {
 
 		ArrayList<String> lista = new ArrayList<String>();
 
-		String ruta = "C:\\Users\\Javier\\eclipse-workspace\\PGNJava\\src\\tema9programacionorientadaaobjetos\\ficheros\\";
+		String ruta = "C:\\Users\\d18frsej2\\eclipse-workspace\\PGNJava\\src\\tema9programacionorientadaaobjetos\\ficheros\\";
 		String fichero = "";
 
 		try {

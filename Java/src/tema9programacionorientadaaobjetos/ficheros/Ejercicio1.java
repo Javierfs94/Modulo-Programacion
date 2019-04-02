@@ -17,7 +17,7 @@ public class Ejercicio1 {
 
   public static void main(String[] args) {
 
-    String ruta = "C:\\Users\\Javier\\eclipse-workspace\\PGNJava\\src\\tema9programacionorientadaaobjetos\\ficheros\\primos.dat";
+    String ruta = "C:\\Users\\d18frsej2\\eclipse-workspace\\PGNJava\\src\\tema9programacionorientadaaobjetos\\ficheros\\primos.dat";
 
     try {
       BufferedWriter leer = new BufferedWriter(new FileWriter(ruta));

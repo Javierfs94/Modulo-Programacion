@@ -21,7 +21,7 @@ public class Ejercicio6 {
 
 	public static void main(String[] args) {
 
-		String ruta = "C:\\Users\\Javier\\eclipse-workspace\\PGNJava\\src\\tema9programacionorientadaaobjetos\\ficheros\\";
+		String ruta = "C:\\Users\\d18frsej2\\eclipse-workspace\\PGNJava\\src\\tema9programacionorientadaaobjetos\\ficheros\\";
 		int contador = 0;
 		String fichero = "";
 		String palabra = "";
