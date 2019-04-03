@@ -1,9 +1,6 @@
 package tema9programacionorientadaaobjetos.gestisimal;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Scanner;
 
 import tema9programacionorientadaaobjetos.gestisimal.almacen.Almacen;
 import tema9programacionorientadaaobjetos.gestisimal.almacen.Articulo;
