@@ -229,9 +229,11 @@ public class TestGestisimal {
   }
 
   /**
+   * Pide un fichero
+   * 
    * @return
    */
-  public static String pedirFichero(String mensaje) {
+  private static String pedirFichero(String mensaje) {
     String nombreFichero;
     nombreFichero = Teclado.leerCadena(mensaje);
     return nombreFichero;
