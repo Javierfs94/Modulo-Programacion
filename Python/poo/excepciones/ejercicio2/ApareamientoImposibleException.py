@@ -6,5 +6,5 @@ Error lanzado cuando no pueden aparearse dos gatos
 
 class ApareamientoImposibleException(Exception):
     def __init__(self): 
-        Exception.__init__(self)
-        print("No pueden aparearse dos gatos de mismo sexo")
+      Exception.__init__(self)
+      print("No pueden aparearse dos gatos de mismo sexo")

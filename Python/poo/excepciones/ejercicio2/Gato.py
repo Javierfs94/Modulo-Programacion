@@ -20,60 +20,26 @@ from poo.excepciones.ejercicio2.ApareamientoImposibleException import Apareamien
 
 class Gato:
   
-  '''
-  Constructor
-  '''
-  def __init__(self, sexo ):
-    self.sexo = sexo
+  def __init__(self,sexo):
+        self.sexo=sexo
+        
+  def getSexo(self):
+        return self.sexo
 
-  #Setters y Getters
   def setColor(self,color):
-    self.color = color
+        self.color=color
+    
   def setRaza(self,raza):
-    self.raza = raza
+        self.raza=raza
+        
   def setEdad(self,edad):
-    self.edad = edad
+        self.edad=edad
+        
   def setPeso(self,peso):
-    self.peso = peso
-
-    '''
-    Hace que el gato maulle
-    '''
-    def maulla(self):
-        print("Miauuuu")
-
-    '''
-    Hace que el gato ronronee
-    '''
-    def  ronronea(self):
-        print("mrrrrrr")
-
-    '''
-     Hace que el gato coma. A los gatos les gusta el pescado, si le damos otra comida la rechazará.
-     '''
-    def come(self, comida):
-        if (comida=="pescado") :
-          print("Hmmmm, gracias")
-        else :
-          print("Lo siento, yo solo como pescado")
-
-    '''
-    Pone a pelear dos gatos. Solo se van a pelear dos machos entre sí.
-    '''
-    def  peleaCon(self, contrincante):
-        if (self.sexo == "hembra"):
-            print("no me gusta pelear");
-        else:
-          if (contrincante.getSexo()== "hembra"):
-            print("no peleo contra gatitas")
-          else:
-            print("ven aquí que te vas a enterar")
-
-    '''
-    Aparea 2 gatos entre ellos
-    '''
-    def apareaCon(self, pareja): 
+        self.peso=peso
+        
+  def apareaCon(self, pareja): 
         if(self.sexo == pareja.sexo):
-          raise ApareamientoImposibleException()
+            raise ApareamientoImposibleException()
         else:
-          print("Los gatos se han apareado")
+            print("Los gatos se han apareado")
