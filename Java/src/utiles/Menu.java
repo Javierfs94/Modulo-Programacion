@@ -41,7 +41,7 @@ public class Menu {
    * @return opcion valida del menu
    * @throws IOException
    * @throws NumberFormatException
-   * @throws NoEsEnteroException 
+   * @throws NoEsEnteroException
    */
   public int gestionar() throws NumberFormatException, IOException, NoEsEnteroException {
     mostrar();
@@ -64,14 +64,16 @@ public class Menu {
    * Recoge la opcion valida del menu
    * 
    * @return opcion valida
-   * @throws IOException
-   * @throws NumberFormatException
-   * @throws NoEsEnteroException
    */
-  private int recogerOpcion() throws NumberFormatException, IOException, NoEsEnteroException {
-    int opcion;
+  private int recogerOpcion() {
+    int opcion = -1;
     do {
-      opcion = Teclado.leerEntero();
+      System.out.println("Introduce una opción válida [1, " + numOpciones + "]");
+      try {
+        opcion = Teclado.leerEntero();
+      } catch (NoEsEnteroException e) {
+        // no hago nada
+      }
     } while (opcion < 1 || opcion > numOpciones);
     return opcion;
   }
