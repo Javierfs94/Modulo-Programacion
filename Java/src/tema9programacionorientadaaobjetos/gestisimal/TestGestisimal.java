@@ -1,6 +1,5 @@
 package tema9programacionorientadaaobjetos.gestisimal;
 
-import java.io.File;
 import java.io.IOException;
 
 import tema9programacionorientadaaobjetos.gestisimal.almacen.Almacen;
