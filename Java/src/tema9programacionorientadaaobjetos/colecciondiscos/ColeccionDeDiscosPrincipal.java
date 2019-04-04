@@ -47,11 +47,7 @@ public class ColeccionDeDiscosPrincipal {
 
 		ArrayList<Disco> discos = new ArrayList<Disco>();
 
-		// Discos de prueba
-		discos.add(new Disco("Paco", "Prueba 1", "Pop", 120));
-		discos.add(new Disco("Hulio", "Prueba 2", "Metal", 150));
-		discos.add(new Disco("Paco", "Prueba 3", "Pop", 140));
-		discos.add(new Disco("Julito", "Prueba 4", "Rock", 160));
+		discosDePrueba(discos);
 
 		// Menu
 		do {
@@ -70,7 +66,6 @@ public class ColeccionDeDiscosPrincipal {
 					switch (opcionListado) {
 
 					case 1: // Listado completo
-
 						listarDiscos(discos);
 						break;
 
@@ -107,6 +102,16 @@ public class ColeccionDeDiscosPrincipal {
 			} // switch
 		} while (opcion != 5);
 	}
+
+  /**
+   * @param discos
+   */
+  public static void discosDePrueba(ArrayList<Disco> discos) {
+    discos.add(new Disco("Paco", "Prueba 1", "Pop", 120));
+		discos.add(new Disco("Hulio", "Prueba 2", "Metal", 150));
+		discos.add(new Disco("Paco", "Prueba 3", "Pop", 140));
+		discos.add(new Disco("Julito", "Prueba 4", "Rock", 160));
+  }
 
 	/**
 	 * @param discos
