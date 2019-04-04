@@ -68,7 +68,7 @@ public class Menu {
   private int recogerOpcion() {
     int opcion = -1;
     do {
-      System.out.println("Introduce una opción válida [1, " + numOpciones + "]");
+      System.out.print("Introduce una opción válida [1, " + numOpciones + "]: ");
       try {
         opcion = Teclado.leerEntero();
       } catch (NoEsEnteroException e) {
