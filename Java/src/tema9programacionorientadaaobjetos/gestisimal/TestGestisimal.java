@@ -1,5 +1,6 @@
 package tema9programacionorientadaaobjetos.gestisimal;
 
+import java.io.File;
 import java.io.IOException;
 
 import tema9programacionorientadaaobjetos.gestisimal.almacen.Almacen;
@@ -29,11 +30,12 @@ import utiles.excepciones.NoEsEnteroException;
  */
 
 public class TestGestisimal {
+
   static Almacen almacen = new Almacen();
   private static Menu menu = new Menu("----MENÚ GESTISIMAL----", new String[] { "Listado", "Alta", "Baja",
       "Modificación", "Entada de mercancía", "Salida de mercancía", "Gestionar Ficheros", "Salir" });
   private static Menu menuFicheros = new Menu("Ficheros",
-      new String[] { "Escribir Artículos", "Leer Artículos", "Salir" });
+      new String[] { "Escribir Artículos", "Leer Artículos", "Eliminar fichero", "Salir" });
 
   public static void main(String[] args) throws Exception {
 
@@ -196,24 +198,42 @@ public class TestGestisimal {
     }
   }
 
-  public static void gestionarFicheros() throws NumberFormatException, NoEsEnteroException, IOException {
+  /**
+   * Gestiona el uso de ficheros
+   * 
+   * @throws NumberFormatException
+   * @throws NoEsEnteroException
+   * @throws IOException
+   */
+  private static void gestionarFicheros() throws NumberFormatException, NoEsEnteroException, IOException {
     String nombreFichero;
     do {
       switch (menuFicheros.gestionar()) {
       case 1: // Escribe articulos
-        nombreFichero = Teclado.leerCadena("Introduzca el nombre del fichero a escribir: ");
+        nombreFichero = pedirFichero("Introduzca el nombre del fichero a escribir: ");
         Fichero.escribirFichero(nombreFichero, almacen);
-
         break;
       case 2: // Lee articulos
-        nombreFichero = Teclado.leerCadena("Introduzca el nombre del fichero a leer: ");
+        nombreFichero = pedirFichero("Introduzca el nombre del fichero a leer: ");
         Fichero.leerFichero(nombreFichero);
-
+        break;
+      case 3: // Borrar fichero
+        nombreFichero = pedirFichero("Introduzca el nombre del fichero a eliminar: ");
+        Fichero.comprobarExistenciaFichero(nombreFichero);
         break;
       default:// Salir
         System.out.println("Volviendo al menu principal.");
         return;
       }
     } while (true);
+  }
+
+  /**
+   * @return
+   */
+  public static String pedirFichero(String mensaje) {
+    String nombreFichero;
+    nombreFichero = Teclado.leerCadena(mensaje);
+    return nombreFichero;
   }
 }
