@@ -1,7 +1,7 @@
 # ModuloProgramacion
 Ejercicios del módulo de Programación de 1º de Desarrollo de Aplicaciones Web (DAW) con los lenguajes Java y Python
 
-Temario visto en el módulo:
+Temario general visto en el módulo para ambos lenguajes:
 - Variables
 - Condicionales
 - Bucles
@@ -14,6 +14,8 @@ Temario visto en el módulo:
 - Filosofía de encapsulación
 - Ficheros
 - Excepciones
-
+- Entorno gráfico
+- JSP
+- Conexión a base de datos
 
 
