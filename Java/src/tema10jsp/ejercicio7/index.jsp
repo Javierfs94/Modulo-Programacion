@@ -1,18 +1,25 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Ejercicio 7</title>
-</head>
-<body>
-	<p>
-		<b>Enunciado:</b> Combina las dos aplicaciones anteriores en una sola
-		de tal forma que en la página principal se pueda elegir pasar de euros
-		a pesetas o de pesetas a euros. Adorna la página con alguna foto o
-		dibujo.
-	</p>
+<%-- 
+    7. Combina las dos aplicaciones anteriores en una sola de tal forma que en la
+       página principal aparezcan dos formularios y se pueda elegir pasar de
+       euros a pesetas o de pesetas a euros según dónde introduzcamos el valor y
+       el botón que pulsemos. Adorna la página con alguna foto o dibujo.
+--%>
 
-</body>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Relación 12 - Ejercicio 7</title>
+    <link href="estilos.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <h1>conversor de moneda</h1>
+    <form class="dinero" method="post" action="conversor.jsp">
+      cantidad</br><input type="number" min="0" step="0.01" name="cantidad"></br></br>
+      <input type="radio" name="cambio" value="eurosEnPesetas" checked="checked"> euros -> pesetas</br></br>
+      <input type="radio" name="cambio" value="pesetasEnEuros"> pesetas -> euros</br></br>
+      <input type="submit" value="Convertir">
+    </form>
+  </body>
 </html>
