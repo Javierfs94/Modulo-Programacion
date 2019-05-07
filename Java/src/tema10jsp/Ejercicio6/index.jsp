@@ -7,7 +7,8 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Relación 12 - Ejercicio 6</title>
+    <link rel="stylesheet" type="text/css" href="estilos.css">
+    <title>Ejercicio 6</title>
   </head>
   <body>
     <h2>Conversor de pesetas a euros</h2>

@@ -3,7 +3,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Relación 12 - Ejercicio 10</title>
+    <title>Ejercicio 10</title>
     <link href="estilos.css" rel="stylesheet" type="text/css" />
   </head>
   <body>

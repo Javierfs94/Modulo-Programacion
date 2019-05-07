@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" type="text/css" href="../estilos.css">
+<link rel="stylesheet" type="text/css" href="estilos.css">
 <title>Ejercicio 4</title>
 </head>
 <body>
