@@ -1,4 +1,4 @@
-package gui;
+package tema11gui;
 
 import java.awt.Color;
 import java.awt.EventQueue;

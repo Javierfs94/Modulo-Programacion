@@ -1,4 +1,4 @@
-package gui;
+package tema11gui;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
