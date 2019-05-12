@@ -16,6 +16,4 @@ Temario general visto en el módulo para ambos lenguajes:
 - Excepciones
 - Entorno gráfico
 - JSP
-- Conexión a base de datos
-
 
