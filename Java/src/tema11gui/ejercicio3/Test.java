@@ -6,17 +6,24 @@ public class Test {
 
   public static void main(String[] args) {
 
-    Scanner entrada = new Scanner(System.in);
-    int x1, x2, y1, y2;
-    double distancia;
-    System.out.println("Dime las coordenadas del punto 1: ");
-    x1 = entrada.nextInt();
-    y1 = entrada.nextInt();
-    System.out.println("Dime las coordenadas del punto 2: ");
-    x2 = entrada.nextInt();
-    y2 = entrada.nextInt();
-    distancia = Math.sqrt((x2 - x1) ^ 2 + (y2 - y1) ^ 2);
-    System.out.println("Distancia: " + distancia);
+//    String letras = "TRWAGMYFPDXBNJZSQVHLCKE";
+//    String dni = textDNI.getText();
+//    try {
+//    if(dni.length()==9) {
+//      int num = Integer.parseInt(dni.substring(0,8));
+//      if((dni.charAt(8)) == letras.charAt(num%23)) {
+//        JOptionPane.showMessageDialog(null, "El DNI es válido.");
+//      }
+//      else {
+//        JOptionPane.showMessageDialog(null, "El DNI no es válido.");
+//      }
+//    }
+//    else {
+//      JOptionPane.showMessageDialog(null, "El DNI no es válido.");
+//    }
+//  }catch(NumberFormatException | NullPointerException | IndexOutOfBoundsException e1) {
+//    JOptionPane.showMessageDialog(null, "¡Introduce un DNI válido!");
+//  }
   }
 
 }
