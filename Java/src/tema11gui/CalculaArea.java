@@ -68,6 +68,13 @@ public class CalculaArea extends JFrame {
     JButton button_calcular = new JButton("Calcular");
     button_calcular.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent arg0) {
+        calcularArea();
+      }
+
+      /**
+       * Calcula el Area
+       */
+      private void calcularArea() {
         try {
           label_mostrar.setForeground(Color.black);
           double pi = 3.14;
@@ -103,15 +110,13 @@ public class CalculaArea extends JFrame {
     btnLimpiar = new JButton("Limpiar");
     btnLimpiar.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
-        limpiar(label_radio);
+        limpiar();
       }
 
       /**
        * Limpia los campos que introducen o muestran información
-       * 
-       * @param label_radio
        */
-      private void limpiar(JLabel label_radio) {
+      private void limpiar() {
         textField_radio.setText("");
         label_radio.setForeground(Color.black);
       }
