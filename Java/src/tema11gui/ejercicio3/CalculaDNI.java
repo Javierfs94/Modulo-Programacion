@@ -102,6 +102,13 @@ public class CalculaDNI extends JFrame {
     JButton button_comprobar = new JButton("Comprobar");
     button_comprobar.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
+        comprobarDNI();
+      }
+
+      /**
+       * Comprueba el DNI introducido
+       */
+      private void comprobarDNI() {
         String letras = "TRWAGMYFPDXBNJZSQVHLCKE";
         String dni = textField_dni.getText();
         if (dni.length() == 9) {
