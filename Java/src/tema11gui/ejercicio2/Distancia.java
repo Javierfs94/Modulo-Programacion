@@ -28,7 +28,7 @@ import javax.swing.border.EmptyBorder;
 public class Distancia extends JFrame {
 
   private JPanel contentPane;
-  static Distancia frame = new Distancia();
+  private static Distancia frame = new Distancia();
   private JTextField textField_x1;
   private JTextField textField_x2;
   private JTextField textField_y1;

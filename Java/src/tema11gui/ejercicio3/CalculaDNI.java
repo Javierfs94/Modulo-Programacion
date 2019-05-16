@@ -26,7 +26,7 @@ public class CalculaDNI extends JFrame {
 
   private JPanel contentPane;
   private JTextField textField_dni;
-  static CalculaDNI frame = new CalculaDNI();
+  private static CalculaDNI frame = new CalculaDNI();
 
   public static void main(String[] args) {
     lanzarAplicacion();

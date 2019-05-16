@@ -13,7 +13,6 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JSeparator;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
@@ -41,7 +40,7 @@ public class Rectangulo extends JFrame {
   private JPanel contentPane;
   private JTextField textField_base;
   private JTextField textField_altura;
-  static Rectangulo frame = new Rectangulo();
+  private static Rectangulo frame = new Rectangulo();
   private JTextField textField_resultado;
 
   public static void main(String[] args) {
@@ -75,8 +74,8 @@ public class Rectangulo extends JFrame {
     JMenuBar menuBar = new JMenuBar();
     setJMenuBar(menuBar);
 
-    JMenu mnOpciones = new JMenu("Opciones");
-    menuBar.add(mnOpciones);
+    JMenu menu_opciones = new JMenu("Opciones");
+    menuBar.add(menu_opciones);
 
     JMenuItem menuItem_enunciado = new JMenuItem("Enunciado");
     menuItem_enunciado.addActionListener(new ActionListener() {
@@ -84,16 +83,7 @@ public class Rectangulo extends JFrame {
         JOptionPane.showMessageDialog(frame, "Calcular el perímetro y área de un rectángulo dada su base y su altura.");
       }
     });
-    mnOpciones.add(menuItem_enunciado);
-
-    JMenuItem menuItem_ayuda = new JMenuItem("Ayuda");
-    menuItem_ayuda.addActionListener(new ActionListener() {
-      public void actionPerformed(ActionEvent e) {
-        JOptionPane.showMessageDialog(frame,
-            "Introduzca la base y la altura en números para calcular el área del réctangulo.");
-      }
-    });
-    mnOpciones.add(menuItem_ayuda);
+    menu_opciones.add(menuItem_enunciado);
 
     JMenuItem menuItem_salir = new JMenuItem("Salir");
     menuItem_salir.addActionListener(new ActionListener() {
@@ -101,10 +91,7 @@ public class Rectangulo extends JFrame {
         System.exit(0);
       }
     });
-
-    JSeparator separador1 = new JSeparator();
-    mnOpciones.add(separador1);
-    mnOpciones.add(menuItem_salir);
+    menu_opciones.add(menuItem_salir);
     contentPane = new JPanel();
     contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
     setContentPane(contentPane);
@@ -140,8 +127,6 @@ public class Rectangulo extends JFrame {
 
       /**
        * Calcula el área del rectángulo
-       * 
-       * @param label_resultado
        */
       public void calcularArea() {
         try {
