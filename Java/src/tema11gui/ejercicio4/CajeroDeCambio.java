@@ -1,10 +1,12 @@
 package tema11gui.ejercicio4;
 
 import java.awt.EventQueue;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.math.BigDecimal;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -85,7 +87,7 @@ public class CajeroDeCambio extends JFrame {
     setResizable(false);
     setTitle("Cajero de cambio");
     setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    setBounds(100, 100, 450, 428);
+    setBounds(100, 100, 571, 552);
 
     JMenuBar menuBar = new JMenuBar();
     setJMenuBar(menuBar);
@@ -116,11 +118,11 @@ public class CajeroDeCambio extends JFrame {
     contentPane.setLayout(null);
 
     JLabel label_dinero = new JLabel("Dinero:");
-    label_dinero.setBounds(71, 11, 46, 14);
+    label_dinero.setBounds(113, 11, 46, 30);
     contentPane.add(label_dinero);
 
     textField_dinero = new JTextField();
-    textField_dinero.setBounds(153, 8, 86, 20);
+    textField_dinero.setBounds(188, 16, 86, 20);
     contentPane.add(textField_dinero);
     textField_dinero.setColumns(10);
 
@@ -231,133 +233,161 @@ public class CajeroDeCambio extends JFrame {
         }
       }
     });
-    boton_cambio.setBounds(282, 7, 91, 23);
+    boton_cambio.setBounds(334, 15, 91, 23);
     contentPane.add(boton_cambio);
 
     textField_200 = new JTextField();
     textField_200.setColumns(10);
-    textField_200.setBounds(85, 59, 57, 20);
+    textField_200.setBounds(123, 106, 57, 20);
     contentPane.add(textField_200);
 
     textField_100 = new JTextField();
     textField_100.setColumns(10);
-    textField_100.setBounds(85, 103, 57, 20);
+    textField_100.setBounds(123, 165, 57, 20);
     contentPane.add(textField_100);
 
     textField_50 = new JTextField();
     textField_50.setColumns(10);
-    textField_50.setBounds(85, 149, 57, 20);
+    textField_50.setBounds(123, 225, 57, 20);
     contentPane.add(textField_50);
 
     textField_20 = new JTextField();
     textField_20.setColumns(10);
-    textField_20.setBounds(85, 194, 57, 20);
+    textField_20.setBounds(123, 280, 57, 20);
     contentPane.add(textField_20);
 
     textField_10 = new JTextField();
     textField_10.setColumns(10);
-    textField_10.setBounds(85, 239, 57, 20);
+    textField_10.setBounds(123, 336, 57, 20);
     contentPane.add(textField_10);
 
     textField_5 = new JTextField();
     textField_5.setColumns(10);
-    textField_5.setBounds(85, 286, 57, 20);
+    textField_5.setBounds(123, 390, 57, 20);
     contentPane.add(textField_5);
 
-    JLabel label_200 = new JLabel("200");
-    label_200.setBounds(29, 62, 46, 14);
+    ImageIcon imgb200 = new ImageIcon(new ImageIcon("src\\tema11gui\\ejercicio4\\imagen\\200.jpg").getImage()
+        .getScaledInstance(60, 30, Image.SCALE_DEFAULT));
+    JLabel label_200 = new JLabel(imgb200);
+    label_200.setBounds(29, 96, 60, 30);
     contentPane.add(label_200);
 
-    JLabel label_100 = new JLabel("100");
-    label_100.setBounds(29, 106, 46, 14);
+    ImageIcon imgb100 = new ImageIcon(new ImageIcon("src\\tema11gui\\ejercicio4\\imagen\\100.jpg").getImage()
+        .getScaledInstance(60, 30, Image.SCALE_DEFAULT));
+    JLabel label_100 = new JLabel(imgb100);
+    label_100.setBounds(29, 215, 60, 30);
     contentPane.add(label_100);
 
-    JLabel label_50 = new JLabel("50");
-    label_50.setBounds(29, 152, 46, 14);
+    ImageIcon imgb50 = new ImageIcon(new ImageIcon("src\\tema11gui\\ejercicio4\\imagen\\50.jpg").getImage()
+        .getScaledInstance(60, 30, Image.SCALE_DEFAULT));
+    JLabel label_50 = new JLabel(imgb50);
+    label_50.setBounds(29, 152, 60, 30);
     contentPane.add(label_50);
 
-    JLabel label_20 = new JLabel("20");
-    label_20.setBounds(29, 197, 46, 14);
+    ImageIcon imgb20 = new ImageIcon(new ImageIcon("src\\tema11gui\\ejercicio4\\imagen\\20.jpg").getImage()
+        .getScaledInstance(60, 30, Image.SCALE_DEFAULT));
+    JLabel label_20 = new JLabel(imgb20);
+    label_20.setBounds(29, 270, 60, 30);
     contentPane.add(label_20);
 
-    JLabel label_4 = new JLabel("10");
-    label_4.setBounds(29, 242, 46, 14);
-    contentPane.add(label_4);
+    ImageIcon imgb10 = new ImageIcon(new ImageIcon("src\\tema11gui\\ejercicio4\\imagen\\10.jpg").getImage()
+        .getScaledInstance(60, 30, Image.SCALE_DEFAULT));
+    JLabel label_10 = new JLabel(imgb10);
+    label_10.setBounds(29, 326, 60, 30);
+    contentPane.add(label_10);
 
-    JLabel label_5 = new JLabel("5");
-    label_5.setBounds(29, 289, 46, 14);
+    ImageIcon imgb5 = new ImageIcon(new ImageIcon("src\\tema11gui\\ejercicio4\\imagen\\5.jpg").getImage()
+        .getScaledInstance(60, 30, Image.SCALE_DEFAULT));
+    JLabel label_5 = new JLabel(imgb5);
+    label_5.setBounds(29, 380, 60, 30);
     contentPane.add(label_5);
 
-    JLabel label_2 = new JLabel("2");
-    label_2.setBounds(243, 62, 46, 14);
+    ImageIcon imgb2 = new ImageIcon(new ImageIcon("src\\tema11gui\\ejercicio4\\imagen\\2.png").getImage()
+        .getScaledInstance(60, 30, Image.SCALE_DEFAULT));
+    JLabel label_2 = new JLabel(imgb2);
+    label_2.setBounds(29, 428, 60, 30);
     contentPane.add(label_2);
 
     textField_2 = new JTextField();
-    textField_2.setBounds(313, 59, 57, 20);
+    textField_2.setBounds(123, 438, 57, 20);
     contentPane.add(textField_2);
     textField_2.setColumns(10);
 
-    JLabel label_1 = new JLabel("1");
-    label_1.setBounds(243, 93, 46, 14);
+    ImageIcon imgb1 = new ImageIcon(new ImageIcon("src\\tema11gui\\ejercicio4\\imagen\\1.png").getImage()
+        .getScaledInstance(60, 30, Image.SCALE_DEFAULT));
+    JLabel label_1 = new JLabel(imgb1);
+    label_1.setBounds(306, 96, 60, 30);
     contentPane.add(label_1);
 
-    JLabel label_050 = new JLabel("0.50");
-    label_050.setBounds(243, 123, 46, 14);
+    ImageIcon imgb050 = new ImageIcon(new ImageIcon("src\\tema11gui\\ejercicio4\\imagen\\050.png").getImage()
+        .getScaledInstance(60, 30, Image.SCALE_DEFAULT));
+    JLabel label_050 = new JLabel(imgb050);
+    label_050.setBounds(306, 155, 60, 30);
     contentPane.add(label_050);
 
-    JLabel label_020 = new JLabel("0.20");
-    label_020.setBounds(243, 152, 46, 14);
+    ImageIcon imgb020 = new ImageIcon(new ImageIcon("src\\tema11gui\\ejercicio4\\imagen\\020.png").getImage()
+        .getScaledInstance(60, 30, Image.SCALE_DEFAULT));
+    JLabel label_020 = new JLabel(imgb020);
+    label_020.setBounds(306, 215, 60, 30);
     contentPane.add(label_020);
 
-    JLabel label_010 = new JLabel("0.10");
-    label_010.setBounds(243, 197, 46, 14);
+    ImageIcon imgb010 = new ImageIcon(new ImageIcon("src\\tema11gui\\ejercicio4\\imagen\\010.png").getImage()
+        .getScaledInstance(60, 30, Image.SCALE_DEFAULT));
+    JLabel label_010 = new JLabel(imgb010);
+    label_010.setBounds(306, 270, 60, 30);
     contentPane.add(label_010);
 
-    JLabel label_005 = new JLabel("0.05");
-    label_005.setBounds(243, 242, 46, 14);
+    ImageIcon imgb005 = new ImageIcon(new ImageIcon("src\\tema11gui\\ejercicio4\\imagen\\005.png").getImage()
+        .getScaledInstance(60, 30, Image.SCALE_DEFAULT));
+    JLabel label_005 = new JLabel(imgb005);
+    label_005.setBounds(306, 326, 60, 30);
     contentPane.add(label_005);
 
-    JLabel label_002 = new JLabel("0.02");
-    label_002.setBounds(243, 289, 46, 14);
+    ImageIcon imgb002 = new ImageIcon(new ImageIcon("src\\tema11gui\\ejercicio4\\imagen\\002.png").getImage()
+        .getScaledInstance(60, 30, Image.SCALE_DEFAULT));
+    JLabel label_002 = new JLabel(imgb002);
+    label_002.setBounds(306, 380, 60, 30);
     contentPane.add(label_002);
 
-    JLabel label_001 = new JLabel("0.01");
-    label_001.setBounds(243, 332, 46, 14);
+    ImageIcon imgb001 = new ImageIcon(new ImageIcon("src\\tema11gui\\ejercicio4\\imagen\\001.png").getImage()
+        .getScaledInstance(60, 30, Image.SCALE_DEFAULT));
+    JLabel label_001 = new JLabel(imgb001);
+    label_001.setBounds(306, 428, 60, 30);
     contentPane.add(label_001);
 
     textField_1 = new JTextField();
     textField_1.setColumns(10);
-    textField_1.setBounds(313, 90, 57, 20);
+    textField_1.setBounds(417, 106, 57, 20);
     contentPane.add(textField_1);
 
     textField_050 = new JTextField();
     textField_050.setColumns(10);
-    textField_050.setBounds(313, 120, 57, 20);
+    textField_050.setBounds(417, 165, 57, 20);
     contentPane.add(textField_050);
 
     textField_020 = new JTextField();
     textField_020.setColumns(10);
-    textField_020.setBounds(313, 163, 57, 20);
+    textField_020.setBounds(417, 225, 57, 20);
     contentPane.add(textField_020);
 
     textField_010 = new JTextField();
     textField_010.setColumns(10);
-    textField_010.setBounds(313, 194, 57, 20);
+    textField_010.setBounds(417, 280, 57, 20);
     contentPane.add(textField_010);
 
     textField_005 = new JTextField();
     textField_005.setColumns(10);
-    textField_005.setBounds(313, 239, 57, 20);
+    textField_005.setBounds(417, 336, 57, 20);
     contentPane.add(textField_005);
 
     textField_002 = new JTextField();
     textField_002.setColumns(10);
-    textField_002.setBounds(313, 286, 57, 20);
+    textField_002.setBounds(417, 390, 57, 20);
     contentPane.add(textField_002);
 
     textField_001 = new JTextField();
     textField_001.setColumns(10);
-    textField_001.setBounds(313, 329, 57, 20);
+    textField_001.setBounds(417, 438, 57, 20);
     contentPane.add(textField_001);
 
   }

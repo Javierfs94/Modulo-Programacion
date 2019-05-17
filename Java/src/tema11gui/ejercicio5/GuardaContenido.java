@@ -179,7 +179,7 @@ public class GuardaContenido extends JFrame {
         }
       }
     });
-    boton_guardar.setBounds(122, 183, 91, 23);
+    boton_guardar.setBounds(151, 164, 91, 23);
     contentPane.add(boton_guardar);
 
   }
